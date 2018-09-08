@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536DF9AA214441FD00357870 /* GoogleService-Info.plist */; };
 		53D624672142B638009CB611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D624662142B638009CB611 /* AppDelegate.swift */; };
-		53D624692142B638009CB611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D624682142B638009CB611 /* ViewController.swift */; };
 		53D6246C2142B639009CB611 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Main.storyboard */; };
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
@@ -17,9 +17,9 @@
 
 /* Begin PBXFileReference section */
 		1BAB610A7C79FBC56BA50649 /* Pods-Perimeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.debug.xcconfig"; sourceTree = "<group>"; };
+		536DF9AA214441FD00357870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53D624632142B638009CB611 /* Perimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D624662142B638009CB611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		53D624682142B638009CB611 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53D6246B2142B639009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53D6246D2142B63E009CB611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D624702142B63E009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,10 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				53D624662142B638009CB611 /* AppDelegate.swift */,
-				53D624682142B638009CB611 /* ViewController.swift */,
 				53D6246A2142B639009CB611 /* Main.storyboard */,
 				53D6246D2142B63E009CB611 /* Assets.xcassets */,
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
+				536DF9AA214441FD00357870 /* GoogleService-Info.plist */,
 				53D624722142B63E009CB611 /* Info.plist */,
 			);
 			path = Perimeter;
@@ -150,6 +150,7 @@
 			files = (
 				53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */,
 				53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */,
+				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
 				53D6246C2142B639009CB611 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53D624692142B638009CB611 /* ViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +370,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Perimeter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkDev.Perimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -385,7 +389,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Perimeter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkDev.Perimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
