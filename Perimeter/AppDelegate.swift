@@ -21,6 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Firebase Initialization
         FirebaseApp.configure()
         
+        // configure tabbar bar view
+        let settingsVc = SettingsTableViewController(style: .grouped)
+        let inboxVc = InboxTableViewController(style: .plain)
+        
+        let settingsNc = UINavigationController(rootViewController: settingsVc)
+        let inboxNc = UINavigationController(rootViewController: inboxVc)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([inboxNc, settingsNc], animated: true)
+        
+        window = UIWindow()
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

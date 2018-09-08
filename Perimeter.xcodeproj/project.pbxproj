@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536DF9AA214441FD00357870 /* GoogleService-Info.plist */; };
+		536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AC214447F400357870 /* SettingsTableViewController.swift */; };
+		536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AE2144487600357870 /* InboxTableViewController.swift */; };
 		53D624672142B638009CB611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D624662142B638009CB611 /* AppDelegate.swift */; };
 		53D6246C2142B639009CB611 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Main.storyboard */; };
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		1BAB610A7C79FBC56BA50649 /* Pods-Perimeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.debug.xcconfig"; sourceTree = "<group>"; };
 		536DF9AA214441FD00357870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		536DF9AC214447F400357870 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		536DF9AE2144487600357870 /* InboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
 		53D624632142B638009CB611 /* Perimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D624662142B638009CB611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53D6246B2142B639009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				53D624662142B638009CB611 /* AppDelegate.swift */,
+				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
+				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
 				53D6246A2142B639009CB611 /* Main.storyboard */,
 				53D6246D2142B63E009CB611 /* Assets.xcassets */,
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
@@ -223,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
+				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

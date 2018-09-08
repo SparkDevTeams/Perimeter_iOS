@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import UIKit
+
+class SettingsTableViewController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension SettingsTableViewController {
+    
+}
+
+// MARK: - UITableViewDataSource
+extension SettingsTableViewController {
+    
+}
