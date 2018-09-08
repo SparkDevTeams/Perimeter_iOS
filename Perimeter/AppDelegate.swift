@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // configure tabbar bar view
+        configureTabBarView()
+        
+        return true
+    }
+    
+    func configureTabBarView() {
         let settingsVc = SettingsTableViewController(style: .grouped)
         let inboxVc = InboxTableViewController(style: .plain)
         
@@ -34,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
