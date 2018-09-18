@@ -16,6 +16,8 @@
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
 		79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* ChatViewController.swift */; };
+		E6E51728214985FF00AE5DA5 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E51727214985FF00AE5DA5 /* OnboardingPageViewController.swift */; };
+		E6E5172C2149888100AE5DA5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E5172B2149888100AE5DA5 /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		79B4419F214457C8003CB123 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
+		E6E51727214985FF00AE5DA5 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		E6E5172B2149888100AE5DA5 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Onboarding.storyboard; path = ../../../.Trash/Onboarding.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
 				536DF9AA214441FD00357870 /* GoogleService-Info.plist */,
 				53D624722142B63E009CB611 /* Info.plist */,
+				E6E5172B2149888100AE5DA5 /* Onboarding.storyboard */,
+				E6E51727214985FF00AE5DA5 /* OnboardingPageViewController.swift */,
 			);
 			path = Perimeter;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 				53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */,
 				53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */,
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
+				E6E5172C2149888100AE5DA5 /* Onboarding.storyboard in Resources */,
 				53D6246C2142B639009CB611 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +241,7 @@
 			files = (
 				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
 				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
+				E6E51728214985FF00AE5DA5 /* OnboardingPageViewController.swift in Sources */,
 				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
 			);
