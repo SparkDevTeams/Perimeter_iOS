@@ -11,9 +11,17 @@ import UIKit
 
 class InboxTableViewController: UITableViewController {
     
+    let messages = ["Poop", "Nuugest"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My app"
+        title = "Perimeter"
+        registerCell()
+    }
+    
+    private func registerCell() {
+        let nib = UINib(nibName: "InboxTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "inboxCell")
     }
 }
 
@@ -26,4 +34,16 @@ extension InboxTableViewController {
 // MARK: - UITableViewDataSource
 extension InboxTableViewController {
     
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return messages.count
+//    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+    
+
+        
+
 }
+

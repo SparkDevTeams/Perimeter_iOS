@@ -8,21 +8,42 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UITableViewController {
+    @IBOutlet var chatView:UITableView!
+    
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
+        
+        chatView.delegate = self
+        chatView.dataSource = self
+        }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+}
+
+func numberOfSections(in tableview: UITableView)->Int{
+    return 1
+}
+// MARK: - UITableViewDelegate
+extension ChatViewController {
+
+}
+
+// MARK: - UITableViewDataSource
+extension ChatViewController {
+    
+    override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         return cell
     }
-
+    
 }
+
