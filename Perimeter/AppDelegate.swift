@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Firebase Initialization
         FirebaseApp.configure()
-        
+       
         // configure tabbar bar view
-        configureTabBarView()
+        configureTabBarView();
+
         
-        return true
+        return true;
     }
     
     func configureTabBarView() {

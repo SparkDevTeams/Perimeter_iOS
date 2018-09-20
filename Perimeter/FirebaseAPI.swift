@@ -32,13 +32,13 @@ class FirebaseAPI{
         }
     }
     
-    func getUserProfile(_ userId: String, completion: @escaping (UserProfile?) -> Void){
+    func getUserProfile(_ userId: String, completion: @escaping (PerimeterUserProfile?) -> Void){
     
         db.collection("Users").document(userId).getDocument { (snapshot, error) in
             
             if error == nil{
                 guard let data = snapshot?.data() else {return}
-                let user = UserProfile(firstName: data["firstName"] as! String, lastName: data["lastName"] as! String, displayName: data["displayName"] as! String, imageUrl: data["imageUrl"] as! String)
+                let user = PerimeterUserProfile(firstName: data["firstName"] as! String, lastName: data["lastName"] as! String, email: data["email"] as! String, profileImageUrl: data["imageUrl"] as? String, displayName: data["displayName"] as! String)
                 completion(user);
             }
             else{
@@ -47,5 +47,7 @@ class FirebaseAPI{
             }
         }
     }
+    
+    
     
 }
