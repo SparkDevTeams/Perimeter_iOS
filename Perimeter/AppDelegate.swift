@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure tabbar bar view
         configureTabBarView();
 
-        
+    
         return true;
     }
     
