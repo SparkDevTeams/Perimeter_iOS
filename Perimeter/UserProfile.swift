@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct PerimeterUserProfile {
+struct UserProfile: Codable {
     let firstName: String
     let lastName: String
     let email: String
     let profileImageUrl: String?
     let displayName: String
     
-    static func testUser() -> PerimeterUserProfile {
-        let profile = PerimeterUserProfile(firstName: "Jim", lastName: "Brown", email: "jimBrown@aol.com", profileImageUrl: nil, displayName: "jb98")
+    static func testUser() -> UserProfile {
+        let profile = UserProfile(firstName: "Jim", lastName: "Brown", email: "jimBrown@aol.com", profileImageUrl: nil, displayName: "jb98")
         return profile
     }
     

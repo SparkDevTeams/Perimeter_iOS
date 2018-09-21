@@ -9,41 +9,68 @@
 import Foundation
 import Firebase
 
+/// Class to interact with firebase API
 class FirebaseAPI{
     
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
     
-    func signIn(email: String, password: String, completion: @escaping (Bool?, String?) -> Void) {
+    /// Call this method to attempt to sign in a user
+    ///
+    /// - Parameters:
+    ///   - email: The email to sign in with
+    ///   - password: The password to sign in with
+    ///   - completion: A block of code to execute once the the sign in is successful or failed. Retuns a Error and a Firebase User
+    public func signIn(email: String, password: String, completion: @escaping (Error?, User?) -> Void) {
         
-        var uid = "";
-        var logInSuccessful = false
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if error == nil{
-                debugPrint("Logged in with uid: " + user!.user.uid)
-                uid = user!.user.uid
-                logInSuccessful = true
-                completion(logInSuccessful, uid)
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            // check to see if there where any error, if so foward to completion handler and return to get out of function
+            if error != nil {
+                completion(error, nil)
+                return
             }
-            else{
-                debugPrint("Wrong username or password");
-                completion(nil, nil)
+            
+            if let user = authDataResult?.user {
+                completion(nil, user)
+                return
             }
         }
     }
     
-    func getUserProfile(_ userId: String, completion: @escaping (PerimeterUserProfile?) -> Void){
     
-        db.collection("Users").document(userId).getDocument { (snapshot, error) in
-            
-            if error == nil{
-                guard let data = snapshot?.data() else {return}
-                let user = PerimeterUserProfile(firstName: data["firstName"] as! String, lastName: data["lastName"] as! String, email: data["email"] as! String, profileImageUrl: data["imageUrl"] as? String, displayName: data["displayName"] as! String)
-                completion(user);
-            }
-            else{
-                debugPrint("No account with uid " + userId);
-                completion(nil);
+    /// Gets a userProfile from a specific userId
+    ///
+    /// - Parameters:
+    ///   - uid: The uid
+    ///   - completion: A block of code to exeucte once the user profile has been fetched. 
+    public func getUserProfileFromUid(_ uid: String, completion: @escaping (Error?, UserProfile?) -> Void) {
+        // get a reference to the specific user document and fetch the documents
+        let dbRef = db.collection("Users").document(uid)
+        dbRef.getDocument { (snapshot, error) in
+            // there was a error
+            if error != nil {
+                completion(error, nil)
+                return
+                
+            } else {
+                // gaurd to make sure snapshot has data
+                guard let retrievedData = snapshot?.data() else {
+                    // something is wrong with the data
+                    let errorTemp = NSError(domain:"", code: 1, userInfo:nil)
+                    completion(errorTemp, nil)
+                    return
+                }
+                
+                // now retrievedData is no longer a optional
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: retrievedData, options: [])
+                    let userProfile = try JSONDecoder().decode(UserProfile.self, from: data)
+                    completion(nil, userProfile)
+                    
+                } catch {
+                    let errorTemp = NSError(domain:"", code: 1, userInfo:nil)
+                    completion(errorTemp, nil)
+                    return
+                }
             }
         }
     }

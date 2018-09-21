@@ -9,13 +9,13 @@
 import Foundation
 
 /// Represents a instance of a chat room
-class ChatRoom {
+class ChatRoom: Codable{
     
     /// The unique identifier for this chat room
     let id: String
     
     /// The users in this chat room
-    var users: [PerimeterUserProfile]
+    var users: [UserProfile]
     
     /// The beacon major identifer
     let beaconIdMajor: String
@@ -29,7 +29,7 @@ class ChatRoom {
     /// The messages in the chatroom
     let messages: [Message]
     
-    init(id: String, users: [PerimeterUserProfile], beaconIdMajor: String, beaconIdMinor: String, location: String, messages: [Message]) {
+    init(id: String, users: [UserProfile], beaconIdMajor: String, beaconIdMinor: String, location: String, messages: [Message]) {
         self.id = "1"
         self.users = users
         self.beaconIdMajor = beaconIdMajor
@@ -42,7 +42,7 @@ class ChatRoom {
     ///
     /// - Returns: Returns some test chat rooms
     static func testChatRooms() -> [ChatRoom] {
-        let chatRoomOne = ChatRoom(id: "1", users: [PerimeterUserProfile.testUser()], beaconIdMajor: "4234", beaconIdMinor: "4242", location: "ECS", messages: Message.testMessages())
+        let chatRoomOne = ChatRoom(id: "1", users: [UserProfile.testUser()], beaconIdMajor: "4234", beaconIdMinor: "4242", location: "ECS", messages: Message.testMessages())
         return [chatRoomOne]
     }
 }

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		534104DB21547EB0009B2C65 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D721547EB0009B2C65 /* ChatRoom.swift */; };
 		534104DC21547EB0009B2C65 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D821547EB0009B2C65 /* Message.swift */; };
-		534104DD21547EB0009B2C65 /* PerimeterUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D921547EB0009B2C65 /* PerimeterUserProfile.swift */; };
+		534104DD21547EB0009B2C65 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D921547EB0009B2C65 /* UserProfile.swift */; };
 		534104DE21547EB0009B2C65 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104DA21547EB0009B2C65 /* FirebaseAPI.swift */; };
+		534104E421547F9A009B2C65 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104E321547F9A009B2C65 /* Constants.swift */; };
+		534104E721547FB1009B2C65 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104E621547FB1009B2C65 /* Extentions.swift */; };
 		536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536DF9AA214441FD00357870 /* GoogleService-Info.plist */; };
 		536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AC214447F400357870 /* SettingsTableViewController.swift */; };
 		536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AE2144487600357870 /* InboxTableViewController.swift */; };
@@ -26,8 +28,10 @@
 		1BAB610A7C79FBC56BA50649 /* Pods-Perimeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.debug.xcconfig"; sourceTree = "<group>"; };
 		534104D721547EB0009B2C65 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoom.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/ChatRoom.swift"; sourceTree = "<absolute>"; };
 		534104D821547EB0009B2C65 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/Message.swift"; sourceTree = "<absolute>"; };
-		534104D921547EB0009B2C65 /* PerimeterUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerimeterUserProfile.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/PerimeterUserProfile.swift"; sourceTree = "<absolute>"; };
+		534104D921547EB0009B2C65 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/UserProfile.swift"; sourceTree = "<absolute>"; };
 		534104DA21547EB0009B2C65 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseAPI.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/FirebaseAPI.swift"; sourceTree = "<absolute>"; };
+		534104E321547F9A009B2C65 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		534104E621547FB1009B2C65 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		536DF9AA214441FD00357870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		536DF9AC214447F400357870 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		536DF9AE2144487600357870 /* InboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534104DF21547F38009B2C65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				534104D721547EB0009B2C65 /* ChatRoom.swift */,
+				534104D921547EB0009B2C65 /* UserProfile.swift */,
+				534104D821547EB0009B2C65 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		534104E021547F57009B2C65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
+				79B4419F214457C8003CB123 /* ChatViewController.swift */,
+				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		534104E121547F6A009B2C65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
+				53D6246A2142B639009CB611 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		534104E221547F78009B2C65 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				534104DA21547EB0009B2C65 /* FirebaseAPI.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		534104E521547F9F009B2C65 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				534104E321547F9A009B2C65 /* Constants.swift */,
+				534104E621547FB1009B2C65 /* Extentions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		53D6245A2142B638009CB611 = {
 			isa = PBXGroup;
 			children = (
@@ -76,16 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				53D624662142B638009CB611 /* AppDelegate.swift */,
-				534104D721547EB0009B2C65 /* ChatRoom.swift */,
-				534104DA21547EB0009B2C65 /* FirebaseAPI.swift */,
-				534104D821547EB0009B2C65 /* Message.swift */,
-				534104D921547EB0009B2C65 /* PerimeterUserProfile.swift */,
-				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
-				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
-				79B4419F214457C8003CB123 /* ChatViewController.swift */,
-				53D6246A2142B639009CB611 /* Main.storyboard */,
+				534104E521547F9F009B2C65 /* Helpers */,
+				534104E221547F78009B2C65 /* Api */,
+				534104E121547F6A009B2C65 /* View */,
+				534104DF21547F38009B2C65 /* Model */,
+				534104E021547F57009B2C65 /* Controller */,
 				53D6246D2142B63E009CB611 /* Assets.xcassets */,
-				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
 				536DF9AA214441FD00357870 /* GoogleService-Info.plist */,
 				53D624722142B63E009CB611 /* Info.plist */,
 			);
@@ -246,12 +292,14 @@
 			files = (
 				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
 				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
+				534104E721547FB1009B2C65 /* Extentions.swift in Sources */,
 				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
 				534104DC21547EB0009B2C65 /* Message.swift in Sources */,
 				534104DB21547EB0009B2C65 /* ChatRoom.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
-				534104DD21547EB0009B2C65 /* PerimeterUserProfile.swift in Sources */,
+				534104DD21547EB0009B2C65 /* UserProfile.swift in Sources */,
 				534104DE21547EB0009B2C65 /* FirebaseAPI.swift in Sources */,
+				534104E421547F9A009B2C65 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

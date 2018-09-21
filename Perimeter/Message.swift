@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Represents a single message
-struct Message {
+struct Message: Codable {
     
     /// The date the message was sent
     let dateSent: Date
