@@ -17,6 +17,10 @@ struct UserProfile: Codable {
     
     static func testUser() -> UserProfile {
         let profile = UserProfile(firstName: "Jim", lastName: "Brown", email: "jimBrown@aol.com", profileImageUrl: nil, displayName: "jb98")
+        
+        for char in profile.displayName {
+            
+        }
         return profile
     }
     
