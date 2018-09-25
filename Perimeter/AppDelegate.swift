@@ -8,6 +8,11 @@
 
 import UIKit
 import Firebase
+<<<<<<< HEAD
+=======
+import FirebaseAuth
+
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,19 +25,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Firebase Initialization
         FirebaseApp.configure()
+<<<<<<< HEAD
         
         // configure tabbar bar view
         configureTabBarView()
         
         return true
+=======
+       
+        // configure tabbar bar view
+        configureTabBarView();
+        
+        FirebaseAPI().signIn(email: "user1@perimeter.com", password: "Password") { (error, user) in
+            print("Fetched user \(user)")
+            guard let user = user else {return}
+            
+            FirebaseAPI().getUserProfileFromUid(user.uid, completion: { (error, profile) in
+                print("User display name \(profile?.displayName)")
+            })
+        }
+
+    
+        return true;
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
     }
     
     func configureTabBarView() {
         let settingsVc = SettingsTableViewController(style: .grouped)
+<<<<<<< HEAD
         let settingsNc = UINavigationController(rootViewController: settingsVc)
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let inboxNc = sb.instantiateViewController(withIdentifier: "inboxVC") as! UINavigationController
+=======
+        let inboxVc = InboxTableViewController(style: .plain)
+        
+        let settingsNc = UINavigationController(rootViewController: settingsVc)
+        let inboxNc = UINavigationController(rootViewController: inboxVc)
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
         
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([inboxNc, settingsNc], animated: true)
@@ -40,10 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+<<<<<<< HEAD
         
         
         
         
+=======
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

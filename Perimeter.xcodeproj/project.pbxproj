@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+=======
+		534104DB21547EB0009B2C65 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D721547EB0009B2C65 /* ChatRoom.swift */; };
+		534104DC21547EB0009B2C65 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D821547EB0009B2C65 /* Message.swift */; };
+		534104DD21547EB0009B2C65 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104D921547EB0009B2C65 /* UserProfile.swift */; };
+		534104DE21547EB0009B2C65 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104DA21547EB0009B2C65 /* FirebaseAPI.swift */; };
+		534104E421547F9A009B2C65 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104E321547F9A009B2C65 /* Constants.swift */; };
+		534104E721547FB1009B2C65 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534104E621547FB1009B2C65 /* Extentions.swift */; };
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 		536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536DF9AA214441FD00357870 /* GoogleService-Info.plist */; };
 		536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AC214447F400357870 /* SettingsTableViewController.swift */; };
 		536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AE2144487600357870 /* InboxTableViewController.swift */; };
@@ -15,14 +24,26 @@
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
+<<<<<<< HEAD
 		711965DE215424200007C884 /* MessageDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711965DD215424200007C884 /* MessageDetailsTableViewController.swift */; };
 		711965E021542B780007C884 /* MessageChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711965DF21542B780007C884 /* MessageChatTableViewCell.swift */; };
 		71DE2545214AF64E000CF387 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DE2543214AF64E000CF387 /* InboxTableViewCell.swift */; };
+=======
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 		79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BAB610A7C79FBC56BA50649 /* Pods-Perimeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		534104D721547EB0009B2C65 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatRoom.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/ChatRoom.swift"; sourceTree = "<absolute>"; };
+		534104D821547EB0009B2C65 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/Message.swift"; sourceTree = "<absolute>"; };
+		534104D921547EB0009B2C65 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/UserProfile.swift"; sourceTree = "<absolute>"; };
+		534104DA21547EB0009B2C65 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseAPI.swift; path = "/Users/davonebarrett/Downloads/Perimeter_iOS-master/Perimeter/FirebaseAPI.swift"; sourceTree = "<absolute>"; };
+		534104E321547F9A009B2C65 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		534104E621547FB1009B2C65 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 		536DF9AA214441FD00357870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		536DF9AC214447F400357870 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		536DF9AE2144487600357870 /* InboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
@@ -32,9 +53,12 @@
 		53D6246D2142B63E009CB611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D624702142B63E009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D624722142B63E009CB611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		711965DD215424200007C884 /* MessageDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailsTableViewController.swift; sourceTree = "<group>"; };
 		711965DF21542B780007C884 /* MessageChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageChatTableViewCell.swift; sourceTree = "<group>"; };
 		71DE2543214AF64E000CF387 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 		79B4419F214457C8003CB123 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +76,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
+=======
+		534104DF21547F38009B2C65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				534104D721547EB0009B2C65 /* ChatRoom.swift */,
+				534104D921547EB0009B2C65 /* UserProfile.swift */,
+				534104D821547EB0009B2C65 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		534104E021547F57009B2C65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
+				79B4419F214457C8003CB123 /* ChatViewController.swift */,
+				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		534104E121547F6A009B2C65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
+				53D6246A2142B639009CB611 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		534104E221547F78009B2C65 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				534104DA21547EB0009B2C65 /* FirebaseAPI.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		534104E521547F9F009B2C65 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				534104E321547F9A009B2C65 /* Constants.swift */,
+				534104E621547FB1009B2C65 /* Extentions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 		53D6245A2142B638009CB611 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				53D624662142B638009CB611 /* AppDelegate.swift */,
+<<<<<<< HEAD
 				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
 				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
 				71DE2543214AF64E000CF387 /* InboxTableViewCell.swift */,
@@ -83,6 +157,14 @@
 				711965DF21542B780007C884 /* MessageChatTableViewCell.swift */,
 				53D6246D2142B63E009CB611 /* Assets.xcassets */,
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
+=======
+				534104E521547F9F009B2C65 /* Helpers */,
+				534104E221547F78009B2C65 /* Api */,
+				534104E121547F6A009B2C65 /* View */,
+				534104DF21547F38009B2C65 /* Model */,
+				534104E021547F57009B2C65 /* Controller */,
+				53D6246D2142B63E009CB611 /* Assets.xcassets */,
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 				536DF9AA214441FD00357870 /* GoogleService-Info.plist */,
 				53D624722142B63E009CB611 /* Info.plist */,
 			);
@@ -241,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				711965DE215424200007C884 /* MessageDetailsTableViewController.swift in Sources */,
 				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
 				711965E021542B780007C884 /* MessageChatTableViewCell.swift in Sources */,
@@ -248,6 +331,18 @@
 				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
 				71DE2545214AF64E000CF387 /* InboxTableViewCell.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
+=======
+				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
+				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
+				534104E721547FB1009B2C65 /* Extentions.swift in Sources */,
+				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
+				534104DC21547EB0009B2C65 /* Message.swift in Sources */,
+				534104DB21547EB0009B2C65 /* ChatRoom.swift in Sources */,
+				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
+				534104DD21547EB0009B2C65 /* UserProfile.swift in Sources */,
+				534104DE21547EB0009B2C65 /* FirebaseAPI.swift in Sources */,
+				534104E421547F9A009B2C65 /* Constants.swift in Sources */,
+>>>>>>> a9532ebd31d8d9a1daf555ffed32df14da9926fe
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
