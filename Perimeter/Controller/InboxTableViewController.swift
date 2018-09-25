@@ -29,11 +29,6 @@ extension InboxTableViewController {
 // MARK: - UITableViewDataSource
 extension InboxTableViewController {
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        
-        return cell
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatrooms.count
