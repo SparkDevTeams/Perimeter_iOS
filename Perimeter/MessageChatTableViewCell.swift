@@ -9,7 +9,26 @@
 import UIKit
 
 class MessageChatTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var messageImageView: UIImageView?
+    
+    @IBOutlet weak var messageTitle: UILabel!
+    
+    
+    
+   
+    @IBOutlet weak var messageTime: UILabel!
+    
+    
+    
+    func getCurrentDateandTime(){
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        let str = formatter.string(from: Date())
+        messageTime.text = str
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

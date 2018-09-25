@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureTabBarView() {
         let settingsVc = SettingsTableViewController(style: .grouped)
-        let inboxVc = InboxTableViewController(style: .plain)
-        
         let settingsNc = UINavigationController(rootViewController: settingsVc)
-        let inboxNc = UINavigationController(rootViewController: inboxVc)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let inboxNc = sb.instantiateViewController(withIdentifier: "inboxVC") as! UINavigationController
         
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([inboxNc, settingsNc], animated: true)
@@ -40,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        
+        
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

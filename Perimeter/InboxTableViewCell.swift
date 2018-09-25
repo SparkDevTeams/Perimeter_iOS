@@ -19,7 +19,7 @@ class InboxTableViewCell: UITableViewCell {
     
     @IBOutlet var messagePreview: UILabel!
 
-    var messageDetail: MessageDetail!
+//    var messageDetail: MessageDetail!
     
     
     

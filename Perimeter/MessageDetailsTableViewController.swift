@@ -18,6 +18,7 @@ class MessageDetailsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationController?.navigationBar.barTintColor = UIColor.blue
     }
 
     // MARK: - Table view data source
@@ -34,7 +35,10 @@ class MessageDetailsTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! MessageChatTableViewCell
+        
+        cell.messageTitle.text = "Hello"
+        cell.getCurrentDateandTime()
 
         // Configure the cell...
 
