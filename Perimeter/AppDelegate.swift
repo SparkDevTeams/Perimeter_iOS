@@ -22,9 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // configure tabbar bar view
-        configureTabBarView()
+        //configureTabBarView()
+        showSignUpScreen()
         
         return true
+    }
+    
+    func showSignUpScreen() {
+        let signUpSB = UIStoryboard(name: "SignUpScreen", bundle: nil)
+        let signUpVC = signUpSB.instantiateViewController(withIdentifier: "SignUp")
+
+        window = UIWindow()
+        window?.rootViewController = signUpVC
+        window?.makeKeyAndVisible()
     }
     
     func configureTabBarView() {
