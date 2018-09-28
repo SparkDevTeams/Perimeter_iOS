@@ -13,7 +13,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
     
     lazy var viewControllerList: [UIViewController] = {
         
-        let sb = UIStoryboard(name: "OnBoarding", bundle: nil)
+        let sb = UIStoryboard(name: "Onboarding", bundle: nil)
         
         let vc1 = sb.instantiateViewController(withIdentifier: "OneVC")
         let vc2 = sb.instantiateViewController(withIdentifier: "TwoVC")
@@ -61,5 +61,10 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         
         return viewControllerList[nextIndex]
     }
+    
+    @IBAction func toSignup(_ sender: UIButton) {
+    }
+    
+    
 }
 
