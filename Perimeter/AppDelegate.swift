@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
     func showSignUpScreen() {
         let signUpSB = UIStoryboard(name: "SignUpScreen", bundle: nil)
         let signUpVC = signUpSB.instantiateViewController(withIdentifier: "SignUp")
