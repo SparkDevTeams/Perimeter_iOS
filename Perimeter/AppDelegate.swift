@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,12 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Firebase Initialization
         FirebaseApp.configure()
-        
+       
         // configure tabbar bar view
         //configureTabBarView()
         showSignUpScreen()
         
-        return true
+        FirebaseAPI().signIn(email: "user1@perimeter.com", password: "Password") { (error, user) in
+            print("Fetched user \(user)")
+            guard let user = user else {return}
+            
+            FirebaseAPI().getUserProfileFromUid(user.uid, completion: { (error, profile) in
+                print("User display name \(profile?.displayName)")
+            })
+        }
+
+    
+        return true;
     }
     
     
