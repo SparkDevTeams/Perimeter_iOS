@@ -62,10 +62,9 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         return viewControllerList[nextIndex]
     }
     
-    @IBAction func toSignup(_ sender: AnyObject) {
-        performSegue(withIdentifier: "Get Started!", sender: self)
-    }
-    
+//    @IBAction func toSignup(_ sender: AnyObject) {
+//        let vc = signUpStoryboard.i    }
+//
     
 }
 
