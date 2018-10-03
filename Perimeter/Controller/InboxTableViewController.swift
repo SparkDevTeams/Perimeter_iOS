@@ -13,11 +13,9 @@ class InboxTableViewController: UITableViewController {
     
     var chatrooms = ChatRoom.testChatRooms()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 
