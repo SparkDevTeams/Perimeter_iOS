@@ -25,22 +25,11 @@ class InboxTableViewCell: UITableViewCell {
     
     
     
-    
-    
     var dateFormatter : DateFormatter = {
         let date = DateFormatter()
         date.dateFormat = "h:mm a"
         return date
     }()
-    
-    
-    
-    
-    
-   // var chatRoom : ChatRoom
-
- 
-    
     
     
     override func awakeFromNib() {
@@ -55,7 +44,6 @@ class InboxTableViewCell: UITableViewCell {
 
     
     }
-    
     
         }
         

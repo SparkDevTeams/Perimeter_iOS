@@ -27,8 +27,6 @@ class InboxTableViewController: UITableViewController {
     }
     
 }
-
-
 // MARK: - UITableViewDelegate
 extension InboxTableViewController {
     
@@ -42,14 +40,11 @@ extension InboxTableViewController {
         // initiate destination view controller of type UIViewController
         //
         
-       let  destinationViewController = UIViewController()
-       let segue = UIStoryboardSegue(identifier: "fromInboxToThread", source: self, destination: destinationViewController)
-       self.performSegue(withIdentifier: "fromInboxToThread", sender: nil)
-    
-        
+       let destinationViewController = ChatViewController()
+    navigationController?.pushViewController(destinationViewController, animated: true)
+
     }
   
-    
 }
 
 // MARK: - UITableViewDataSource
@@ -57,10 +52,6 @@ extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inboxCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! InboxTableViewCell
-        
-        
-        //let chatroom = chatrooms[indexPath.row]
-        //inboxCell.chatRoomImage.image = UIImage(named: "avatarPlaceholder.png")
         
         
         return inboxCell
