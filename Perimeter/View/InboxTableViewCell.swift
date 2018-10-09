@@ -9,7 +9,6 @@
 import UIKit
 
 class InboxTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var chatRoomImage: UIImageView!
    
@@ -20,10 +19,8 @@ class InboxTableViewCell: UITableViewCell {
     @IBOutlet weak var chatFinalMessage: UILabel!
     
     var indexpath :IndexPath!
+    
     let tapGesture = UITapGestureRecognizer()
-    
-    
-    
     
     var dateFormatter : DateFormatter = {
         let date = DateFormatter()
@@ -31,20 +28,13 @@ class InboxTableViewCell: UITableViewCell {
         return date
     }()
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-    
     }
-    
         }
         
         

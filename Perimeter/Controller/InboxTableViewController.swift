@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class InboxTableViewController: UITableViewController {
     //var chatrooms = [String]()
     var chatrooms = ChatRoom.testChatRooms()
@@ -32,32 +31,21 @@ extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        
         let indexPath = tableView.indexPathForSelectedRow
-        //PUT ANYTHING THAT USER WANTS To show
+       
         let currentCell = tableView.cellForRow(at: indexPath!)
         
-        // initiate destination view controller of type UIViewController
-        //
-        
        let destinationViewController = ChatViewController()
-    navigationController?.pushViewController(destinationViewController, animated: true)
-
+       navigationController?.pushViewController(destinationViewController, animated: true)
     }
-  
 }
 
-// MARK: - UITableViewDataSource
 extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inboxCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! InboxTableViewCell
-        
-        
         return inboxCell
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatrooms.count
@@ -66,7 +54,6 @@ extension InboxTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80.0)
     }
-
 }
 
 
