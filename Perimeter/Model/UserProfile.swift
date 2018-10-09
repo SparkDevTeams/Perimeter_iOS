@@ -20,7 +20,7 @@ struct UserProfile: Codable {
         let profile = UserProfile(firstName: "Jim", lastName: "Brown", email: "jimBrown@yahoo.com", profileImageUrl: nil, displayName: "jb98")
         return profile
     }
-    
+
     var dictionary: [String: Any] {
         var dictionary = [String: Any]()
         dictionary["firstName"] = firstName
@@ -30,6 +30,5 @@ struct UserProfile: Codable {
         dictionary["displayName"] = displayName
         return dictionary
     }
-    
-    
+
 }
