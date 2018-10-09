@@ -39,7 +39,7 @@ struct Message: Codable {
     /// The unique identifier for the message
     let messageId: String
     
-    
+ 
     
     /// Returns an array of test messages
     ///

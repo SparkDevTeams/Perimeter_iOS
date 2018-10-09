@@ -36,6 +36,25 @@ class FirebaseAPI{
         }
     }
     
+    public func createAccount(profile: UserProfile, password: String, completion: @escaping(Error?,User?)-> Void){
+        
+        Auth.auth().createUser(withEmail: profile.email, password: password) { (authResult, error) in
+    
+            if error != nil{
+                completion(error,nil)
+                return
+            }
+            
+            if let user = authResult?.user{
+                let documentRef = self.db.collection("Users").document(user.uid)
+                var dictionary = profile.dictionary
+                dictionary.updateValue(documentRef.documentID, forKey:"id")
+                documentRef.setData(dictionary)
+                completion(nil,user)
+                return
+            }
+        }
+    }
     
     /// Gets a userProfile from a specific userId
     ///
@@ -74,7 +93,4 @@ class FirebaseAPI{
             }
         }
     }
-    
-    
-    
 }
