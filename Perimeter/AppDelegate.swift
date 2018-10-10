@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         //showMain()
-        showSignup()
+        //showSignup()
+        showOnboarding()
 
         return true
     }
@@ -37,6 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.rootViewController = signupVC
+        window?.makeKeyAndVisible()
+    }
+    
+    func showOnboarding() {
+        let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
+        
+        let onboardingVC = onboardingSB.instantiateViewController(withIdentifier: "OnboardingVC")
+        
+        window = UIWindow()
+        window?.rootViewController = onboardingVC
         window?.makeKeyAndVisible()
     }
     

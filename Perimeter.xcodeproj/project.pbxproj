@@ -21,6 +21,9 @@
 		5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372794C216E531C008D2820 /* ChangePasswordViewController.swift */; };
 		5372794F216E57D9008D2820 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5372794E216E57D9008D2820 /* Signup.storyboard */; };
 		53727953216E5899008D2820 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53727952216E5899008D2820 /* SignupViewController.swift */; };
+		53727956216E7741008D2820 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53727955216E7741008D2820 /* OnboardingPageViewController.swift */; };
+		53727959216E7767008D2820 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53727958216E7767008D2820 /* Onboarding.storyboard */; };
+		5372795E216E7888008D2820 /* LastOnboardingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372795D216E7888008D2820 /* LastOnboardingScreenViewController.swift */; };
 		53D624672142B638009CB611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D624662142B638009CB611 /* AppDelegate.swift */; };
 		53D6246C2142B639009CB611 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Settings.storyboard */; };
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		5372794C216E531C008D2820 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		5372794E216E57D9008D2820 /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		53727952216E5899008D2820 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		53727955216E7741008D2820 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		53727958216E7767008D2820 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		5372795D216E7888008D2820 /* LastOnboardingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingScreenViewController.swift; sourceTree = "<group>"; };
 		53D624632142B638009CB611 /* Perimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D624662142B638009CB611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53D6246B2142B639009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		534104E021547F57009B2C65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				53727957216E774C008D2820 /* Onboarding */,
 				53727954216E58C5008D2820 /* Signup */,
 				5372794B216E5280008D2820 /* Settings */,
 				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
@@ -96,10 +103,7 @@
 		534104E121547F6A009B2C65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
-				5372794E216E57D9008D2820 /* Signup.storyboard */,
-				53D6246A2142B639009CB611 /* Settings.storyboard */,
-				53727947216E4E38008D2820 /* Main.storyboard */,
+				5372795C216E77CE008D2820 /* Storyboards */,
 				71875636215ADABE001E1927 /* InboxTableViewCell.swift */,
 				71875637215ADABE001E1927 /* InboxTableViewCell.xib */,
 			);
@@ -139,6 +143,27 @@
 				53727952216E5899008D2820 /* SignupViewController.swift */,
 			);
 			path = Signup;
+			sourceTree = "<group>";
+		};
+		53727957216E774C008D2820 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				53727955216E7741008D2820 /* OnboardingPageViewController.swift */,
+				5372795D216E7888008D2820 /* LastOnboardingScreenViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5372795C216E77CE008D2820 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
+				5372794E216E57D9008D2820 /* Signup.storyboard */,
+				53727958216E7767008D2820 /* Onboarding.storyboard */,
+				53D6246A2142B639009CB611 /* Settings.storyboard */,
+				53727947216E4E38008D2820 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		53D6245A2142B638009CB611 = {
@@ -259,6 +284,7 @@
 				53727948216E4E38008D2820 /* Main.storyboard in Resources */,
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
 				53D6246C2142B639009CB611 /* Settings.storyboard in Resources */,
+				53727959216E7767008D2820 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +363,9 @@
 				535DEE90215AB8AC0081545D /* ChatRoom.swift in Sources */,
 				535DEE8F215AB8AC0081545D /* Message.swift in Sources */,
 				5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */,
+				53727956216E7741008D2820 /* OnboardingPageViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
+				5372795E216E7888008D2820 /* LastOnboardingScreenViewController.swift in Sources */,
 				53727953216E5899008D2820 /* SignupViewController.swift in Sources */,
 				534104E421547F9A009B2C65 /* Constants.swift in Sources */,
 				5372794A216E5057008D2820 /* EditProfileViewController.swift in Sources */,
