@@ -13,15 +13,12 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Settings"
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate & UITableViewDataSource
 extension SettingsTableViewController {
     
 }
 
-// MARK: - UITableViewDataSource
-extension SettingsTableViewController {
-    
-}

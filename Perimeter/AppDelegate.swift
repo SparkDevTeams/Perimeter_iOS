@@ -30,10 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureTabBarView() {
-        let settingsVc = SettingsTableViewController(style: .grouped)
+        
+        let settingsSB = UIStoryboard(name: "Settings", bundle: nil)
+        
+        let settingsVc = settingsSB.instantiateViewController(withIdentifier: "SettingsVC")
         let inboxVc = InboxTableViewController(style: .plain)
         
         let settingsNc = UINavigationController(rootViewController: settingsVc)
+        settingsNc.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 0)
+        
         let inboxNc = UINavigationController(rootViewController: inboxVc)
         
         let tabBarController = UITabBarController()

@@ -16,8 +16,11 @@
 		536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 536DF9AA214441FD00357870 /* GoogleService-Info.plist */; };
 		536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AC214447F400357870 /* SettingsTableViewController.swift */; };
 		536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536DF9AE2144487600357870 /* InboxTableViewController.swift */; };
+		53727948216E4E38008D2820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53727947216E4E38008D2820 /* Main.storyboard */; };
+		5372794A216E5057008D2820 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53727949216E5057008D2820 /* EditProfileViewController.swift */; };
+		5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372794C216E531C008D2820 /* ChangePasswordViewController.swift */; };
 		53D624672142B638009CB611 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D624662142B638009CB611 /* AppDelegate.swift */; };
-		53D6246C2142B639009CB611 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Main.storyboard */; };
+		53D6246C2142B639009CB611 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Settings.storyboard */; };
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
@@ -37,9 +40,12 @@
 		536DF9AA214441FD00357870 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		536DF9AC214447F400357870 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		536DF9AE2144487600357870 /* InboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
+		53727947216E4E38008D2820 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		53727949216E5057008D2820 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		5372794C216E531C008D2820 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		53D624632142B638009CB611 /* Perimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D624662142B638009CB611 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		53D6246B2142B639009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53D6246B2142B639009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		53D6246D2142B63E009CB611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D624702142B63E009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D624722142B63E009CB611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,9 +81,9 @@
 		534104E021547F57009B2C65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5372794B216E5280008D2820 /* Settings */,
 				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
 				79B4419F214457C8003CB123 /* ChatViewController.swift */,
-				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
-				53D6246A2142B639009CB611 /* Main.storyboard */,
+				53D6246A2142B639009CB611 /* Settings.storyboard */,
+				53727947216E4E38008D2820 /* Main.storyboard */,
 				71875636215ADABE001E1927 /* InboxTableViewCell.swift */,
 				71875637215ADABE001E1927 /* InboxTableViewCell.xib */,
 			);
@@ -108,6 +115,16 @@
 				534104E621547FB1009B2C65 /* Extentions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5372794B216E5280008D2820 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				536DF9AC214447F400357870 /* SettingsTableViewController.swift */,
+				53727949216E5057008D2820 /* EditProfileViewController.swift */,
+				5372794C216E531C008D2820 /* ChangePasswordViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		53D6245A2142B638009CB611 = {
@@ -224,8 +241,9 @@
 				53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */,
 				53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */,
 				71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */,
+				53727948216E4E38008D2820 /* Main.storyboard in Resources */,
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
-				53D6246C2142B639009CB611 /* Main.storyboard in Resources */,
+				53D6246C2142B639009CB611 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +321,10 @@
 				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
 				535DEE90215AB8AC0081545D /* ChatRoom.swift in Sources */,
 				535DEE8F215AB8AC0081545D /* Message.swift in Sources */,
+				5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
 				534104E421547F9A009B2C65 /* Constants.swift in Sources */,
+				5372794A216E5057008D2820 /* EditProfileViewController.swift in Sources */,
 				535DEE8B215AB89D0081545D /* FirebaseAPI.swift in Sources */,
 				535DEE91215AB8AC0081545D /* UserProfile.swift in Sources */,
 				71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */,
@@ -314,12 +334,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		53D6246A2142B639009CB611 /* Main.storyboard */ = {
+		53D6246A2142B639009CB611 /* Settings.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				53D6246B2142B639009CB611 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */ = {

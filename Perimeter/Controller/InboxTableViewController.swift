@@ -11,7 +11,7 @@ import UIKit
 
 class InboxTableViewController: UITableViewController {
     //var chatrooms = [String]()
-    var chatrooms = ChatRoom.testChatRooms()
+    var chatrooms = [ChatRoom]()
 
     let cellIdentifer = "InboxCell"
     
@@ -59,4 +59,4 @@ extension InboxTableViewController {
         return 1
     }
     
-    
+}
