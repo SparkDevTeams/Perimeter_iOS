@@ -38,11 +38,6 @@ struct Message: Codable {
     /// The unique identifier for the message
     let messageId: String
     
-<<<<<<< HEAD
- 
-    
-=======
->>>>>>> a88fced31fec050739d9bb4eef23ca2aff3a326c
     /// Returns an array of test messages
     ///
     /// - Returns: An array of messages
