@@ -31,7 +31,6 @@ extension InboxTableViewController {
         return chatrooms.count
     }
     
-<<<<<<< HEAD
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
@@ -41,16 +40,3 @@ extension InboxTableViewController {
         return cell
     }
     
-=======
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        
-        return cell
-    }
->>>>>>> a88fced31fec050739d9bb4eef23ca2aff3a326c
-}
