@@ -24,12 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-        configureTabBarView()
+        //showMain()
+        showSignup()
 
         return true
     }
     
-    func configureTabBarView() {
+    func showSignup() {
+        let signupSB = UIStoryboard(name: "Signup", bundle: nil)
+        
+        let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
+        
+        window = UIWindow()
+        window?.rootViewController = signupVC
+        window?.makeKeyAndVisible()
+    }
+    
+    func showMain() {
         
         let settingsSB = UIStoryboard(name: "Settings", bundle: nil)
         
