@@ -15,8 +15,6 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -24,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Firebase Initialization
         FirebaseApp.configure()
        
-        // configure tabbar bar view
+        /* configure tabbar bar view, if you want to change the entry point of the app
+         comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         configureTabBarView()
 
-    
         return true
     }
     

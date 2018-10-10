@@ -12,9 +12,10 @@ import UIKit
 class InboxTableViewController: UITableViewController {
     //var chatrooms = [String]()
     var chatrooms = ChatRoom.testChatRooms()
-    let cellIdentifer = "InboxCell"
 
-        override func viewDidLoad() {
+    let cellIdentifer = "InboxCell"
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
         title = "Chatrooms"
@@ -24,7 +25,6 @@ class InboxTableViewController: UITableViewController {
         let nib = UINib(nibName: "InboxTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellIdentifer)
     }
-    
 }
 // MARK: - UITableViewDelegate
 extension InboxTableViewController {
@@ -54,9 +54,9 @@ extension InboxTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80.0)
     }
-}
-
-
+    
+    override func numberOfSections(in tableView: UITableView) -> Int{
+        return 1
+    }
     
     
-
