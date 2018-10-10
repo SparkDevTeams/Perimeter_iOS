@@ -35,7 +35,7 @@ extension InboxTableViewController {
        
         let currentCell = tableView.cellForRow(at: indexPath!)
         
-       let destinationViewController = ChatViewController()
+       let destinationViewController = MessageThreadViewController()
        navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }

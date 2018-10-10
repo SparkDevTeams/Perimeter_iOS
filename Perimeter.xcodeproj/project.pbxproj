@@ -31,7 +31,7 @@
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
 		71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71875636215ADABE001E1927 /* InboxTableViewCell.swift */; };
 		71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71875637215ADABE001E1927 /* InboxTableViewCell.xib */; };
-		79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* ChatViewController.swift */; };
+		79B441A0214457C8003CB123 /* MessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* MessageThreadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,7 @@
 		53D624722142B63E009CB611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71875636215ADABE001E1927 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		71875637215ADABE001E1927 /* InboxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InboxTableViewCell.xib; sourceTree = "<group>"; };
-		79B4419F214457C8003CB123 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		79B4419F214457C8003CB123 /* MessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadViewController.swift; sourceTree = "<group>"; };
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 				53727954216E58C5008D2820 /* Signup */,
 				5372794B216E5280008D2820 /* Settings */,
 				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
-				79B4419F214457C8003CB123 /* ChatViewController.swift */,
+				79B4419F214457C8003CB123 /* MessageThreadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 				536DF9AD214447F400357870 /* SettingsTableViewController.swift in Sources */,
 				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
 				534104E721547FB1009B2C65 /* Extentions.swift in Sources */,
-				79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */,
+				79B441A0214457C8003CB123 /* MessageThreadViewController.swift in Sources */,
 				535DEE90215AB8AC0081545D /* ChatRoom.swift in Sources */,
 				535DEE8F215AB8AC0081545D /* Message.swift in Sources */,
 				5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */,
