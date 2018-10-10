@@ -15,15 +15,36 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // overboarding
+        window = UIWindow()
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let onboardingStoryBoard = UIStoryboard(name: "Onboarding", bundle: nil)
+        
+        let isSetupComplete = UserDefaults.standard.bool(forKey: "isSetupComplete")
+        if (isSetupComplete){
+            // show the onboarding screen
+            
+        } else {
+            // show the main screen
+            let vc = onboardingStoryBoard.instantiateViewController(withIdentifier: "onboardingPageViewController") as! OnboardingPageViewController
+            window?.rootViewController = vc
+            print("showing onboarding screen")
+            window?.makeKeyAndVisible()
+
+        }
+        
+        
+
         // Override point for customization after application launch.
         
         // Firebase Initialization
         FirebaseApp.configure()
        
-        /* configure tabbar bar view, if you want to change the entry point of the app
-         comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-        configureTabBarView();
+        // configure tabbar bar view
+        //configureTabBarView()
+
         
         return true;
     }
