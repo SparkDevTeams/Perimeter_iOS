@@ -15,7 +15,7 @@ class ChatRoom: Codable{
     let id: String
     
     /// The users in this chat room
-    var users: [UserProfile]
+    var users: [UserProfile]?
     
     /// The beacon major identifer
     let beaconIdMajor: String
@@ -26,23 +26,31 @@ class ChatRoom: Codable{
     /// The location for this chat room
     let location: String
     
-    /// The messages in the chatroom
-    let messages: [Message]
+    /// The id for the document holding the current messages
+    var currentMessagesId: String
     
-    init(id: String, users: [UserProfile], beaconIdMajor: String, beaconIdMinor: String, location: String, messages: [Message]) {
+    /// The ids for the documents that contain all the messages ever written in the chat
+    var messagesIds:[String]
+    
+    /// A description for the chat room
+    let description: String
+    
+    // The chatroom image
+    let chatRoomImageUrl: String?
+    
+    /// The last message in this chat room
+    var lastMessage: Message?
+    
+    init(id: String, users: [UserProfile], beaconIdMajor: String, beaconIdMinor: String, location: String, description: String, messages: [Message], currentMessagesId: String, messagesIds: [String]) {
         self.id = "1"
         self.users = users
         self.beaconIdMajor = beaconIdMajor
         self.beaconIdMinor = beaconIdMinor
         self.location = "ECS"
-        self.messages = Message.testMessages()
-    }
-    
-    /// Gets some test chat rooms
-    ///
-    /// - Returns: Returns some test chat rooms
-    static func testChatRooms() -> [ChatRoom] {
-        let chatRoomOne = ChatRoom(id: "1", users: [UserProfile.testUser()], beaconIdMajor: "4234", beaconIdMinor: "4242", location: "ECS", messages: Message.testMessages())
-        return [chatRoomOne]
+        self.description = description
+        //self.messages = nil
+        self.chatRoomImageUrl = nil
+        self.currentMessagesId = currentMessagesId
+        self.messagesIds = messagesIds
     }
 }

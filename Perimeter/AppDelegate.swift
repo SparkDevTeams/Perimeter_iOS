@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // overboarding
         window = UIWindow()
@@ -45,17 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         // configure tabbar bar view
         //configureTabBarView()
-        
-        FirebaseAPI().signIn(email: "user1@perimeter.com", password: "Password") { (error, user) in
-            print("Fetched user \(user)")
-            guard let user = user else {return}
-            
-            FirebaseAPI().getUserProfileFromUid(user.uid, completion: { (error, profile) in
-                print("User display name \(profile?.displayName)")
-            })
-        }
 
-    
+        
         return true;
     }
     

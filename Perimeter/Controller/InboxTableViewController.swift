@@ -13,11 +13,9 @@ class InboxTableViewController: UITableViewController {
     
     var chatrooms = ChatRoom.testChatRooms()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }
 
 
@@ -34,4 +32,14 @@ extension InboxTableViewController {
         return chatrooms.count
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        
+        return cell
+    }
 }

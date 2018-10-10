@@ -75,6 +75,70 @@ class FirebaseAPI{
         }
     }
     
+    /// Fetchs all the chatrooms from firebase
+    ///
+    /// - Parameter completion: a block of code to execute when all the chat rooms have been fetched
+     func fetchAllChatRooms(completion: @escaping ([ChatRoom], Error?) -> Void) {
+        let chatroomRef = db.collection("ChatRooms")
+        chatroomRef.getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print("Error fetching documents")
+                completion([], error)
+            } else {
+                
+                do {
+                    var chatRooms = [ChatRoom]()
+                    
+                    let documents = querySnapshot!.documents
+                    
+                    for document in documents {
+                        let data = document.data()
+                        let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+                        let chatroom = try JSONDecoder().decode(ChatRoom.self, from: jsonData)
+                        chatRooms.append(chatroom)
+                    }
+                    
+                    completion(chatRooms, nil)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
+     /// fetches all the messages for the passed in chatroom
+     ///
+     /// - Parameters:
+     ///   - chatRoom: The chatroom to fetch the messages from
+     ///   - completion: A block of code to execute when all the messages have been fetch
+     func fetchMessagesForChatRoom(_ chatRoom: ChatRoom, completion: @escaping ([Message], DocumentReference, Error?) -> Void) {
+        // get document ref and fetch
+        let messsagesRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+        messsagesRef.getDocument { (snapshot, error) in
+            
+            if error != nil {
+                completion([],messsagesRef, error)
+            } else {
+                if let data = snapshot?.data(), let messages = data["messages"] {
+                    
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options: [])
+                        let messages = try JSONDecoder().decode([Message].self, from: jsonData)
+                        completion(messages, messsagesRef, nil)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    
+                } else{
+                    let tempError = NSError(domain: "Could not decode messsage", code: 1, userInfo: nil)
+                    completion([], messsagesRef,tempError)
+                    return
+                }
+            }
+        }
+    }
     
     
 }
