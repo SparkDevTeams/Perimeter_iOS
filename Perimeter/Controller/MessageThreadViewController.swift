@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UITableViewController {
+class MessageThreadViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
