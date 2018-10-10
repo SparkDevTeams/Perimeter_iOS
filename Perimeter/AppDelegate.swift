@@ -17,15 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
+
         // Firebase Initialization
         FirebaseApp.configure()
        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-        configureTabBarView();
+        configureTabBarView()
 
-        return true;
+        return true
     }
     
     func configureTabBarView() {

@@ -21,6 +21,8 @@
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
+		71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71875636215ADABE001E1927 /* InboxTableViewCell.swift */; };
+		71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71875637215ADABE001E1927 /* InboxTableViewCell.xib */; };
 		79B441A0214457C8003CB123 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		53D6246D2142B63E009CB611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D624702142B63E009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D624722142B63E009CB611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71875636215ADABE001E1927 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		71875637215ADABE001E1927 /* InboxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InboxTableViewCell.xib; sourceTree = "<group>"; };
 		79B4419F214457C8003CB123 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 			children = (
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
 				53D6246A2142B639009CB611 /* Main.storyboard */,
+				71875636215ADABE001E1927 /* InboxTableViewCell.swift */,
+				71875637215ADABE001E1927 /* InboxTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			files = (
 				53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */,
 				53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */,
+				71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */,
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
 				53D6246C2142B639009CB611 /* Main.storyboard in Resources */,
 			);
@@ -300,6 +307,7 @@
 				534104E421547F9A009B2C65 /* Constants.swift in Sources */,
 				535DEE8B215AB89D0081545D /* FirebaseAPI.swift in Sources */,
 				535DEE91215AB8AC0081545D /* UserProfile.swift in Sources */,
+				71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
