@@ -15,6 +15,8 @@ class InboxTableViewController: UITableViewController {
 
     let cellIdentifer = "InboxCell"
     
+    let firebase = FirebaseAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
@@ -25,7 +27,22 @@ class InboxTableViewController: UITableViewController {
         let nib = UINib(nibName: "InboxTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellIdentifer)
     }
+
+    private func loadChatRooms(){
+        
+        firebase.fetchAllChatRooms{(chatRooms, error) in
+            self.chatrooms = chatRooms
+            
+            for chatRoom in chatRooms{
+                self.firebase.fetchMessagesForChatRoom(chatRoom, completion: {(messages,messagesRef,error) in
+                    self.tableView.reloadData() })
+            }
+        }
+    }
 }
+
+
+
 // MARK: - UITableViewDelegate
 extension InboxTableViewController {
     
@@ -58,5 +75,4 @@ extension InboxTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
-    
 }
