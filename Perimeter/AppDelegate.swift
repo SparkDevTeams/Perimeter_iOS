@@ -17,11 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
+    
 
         // Firebase Initialization
         FirebaseApp.configure()
-       
+        
+        
+        let profile = UserProfile(firstName: "C", lastName: "A", email: "testerz@fiu.edu", profileImageUrl: nil, displayName: "accountTest")
+        
+        FirebaseAPI().createAccount(profile: profile, password: "PASSWORD123"){(error, user) in
+            
+            if error != nil{
+                print("new user id is ")
+                print(user?.uid)
+            }
+            
+        }
+        
+        FirebaseAPI().changeDisplayName(newDisplayName: "CristinaNewDisplayName", uid: "i1jU1oLBCQTCSmAZFwTR9xvFCRl1", completion: ({ (error, profile) in
+            print(profile)
+        }))
+        
+        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         //showMain()

@@ -56,6 +56,27 @@ class FirebaseAPI{
         }
     }
     
+    
+    public func changeDisplayName(newDisplayName: String, uid: String, completion: @escaping (Error?) -> Void) {
+        // get a reference to the specific user document and fetch the documents
+        let dbRef = db.collection("Users").document(uid)
+        dbRef.getDocument { (snapshot, error) in
+            // there was a error
+            if error != nil {
+                completion(error)
+                return
+
+            } else {
+                dbRef.updateData(["displayName":newDisplayName])
+                self.getUserProfileFromUid(uid, completion: {(error,profile) in
+                    completion(nil)
+
+                });
+            }
+        }
+    }
+      
+    
     /// Gets a userProfile from a specific userId
     ///
     /// - Parameters:
