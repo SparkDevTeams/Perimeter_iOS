@@ -32,6 +32,8 @@
 		71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71875636215ADABE001E1927 /* InboxTableViewCell.swift */; };
 		71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71875637215ADABE001E1927 /* InboxTableViewCell.xib */; };
 		79B441A0214457C8003CB123 /* MessageThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4419F214457C8003CB123 /* MessageThreadViewController.swift */; };
+		E653D1322174E61D00952671 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E653D1312174E61D00952671 /* CreateAccount.storyboard */; };
+		E653D13B2176866F00952671 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653D13A2176866F00952671 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		79B4419F214457C8003CB123 /* MessageThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageThreadViewController.swift; sourceTree = "<group>"; };
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
+		E653D1312174E61D00952671 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
+		E653D13A2176866F00952671 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Perimeter/CreateAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 		534104E021547F57009B2C65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E653D13A2176866F00952671 /* CreateAccountViewController.swift */,
+				E653D1352174E66F00952671 /* CreateAccount */,
 				53727957216E774C008D2820 /* Onboarding */,
 				53727954216E58C5008D2820 /* Signup */,
 				5372794B216E5280008D2820 /* Settings */,
@@ -159,6 +165,7 @@
 			children = (
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
 				5372794E216E57D9008D2820 /* Signup.storyboard */,
+				E653D1312174E61D00952671 /* CreateAccount.storyboard */,
 				53727958216E7767008D2820 /* Onboarding.storyboard */,
 				53D6246A2142B639009CB611 /* Settings.storyboard */,
 				53727947216E4E38008D2820 /* Main.storyboard */,
@@ -215,6 +222,13 @@
 				C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E653D1352174E66F00952671 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateAccount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +299,7 @@
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
 				53D6246C2142B639009CB611 /* Settings.storyboard in Resources */,
 				53727959216E7767008D2820 /* Onboarding.storyboard in Resources */,
+				E653D1322174E61D00952671 /* CreateAccount.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +378,7 @@
 				535DEE90215AB8AC0081545D /* ChatRoom.swift in Sources */,
 				535DEE8F215AB8AC0081545D /* Message.swift in Sources */,
 				5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */,
+				E653D13B2176866F00952671 /* CreateAccountViewController.swift in Sources */,
 				53727956216E7741008D2820 /* OnboardingPageViewController.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
 				5372795E216E7888008D2820 /* LastOnboardingScreenViewController.swift in Sources */,
@@ -517,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RK78J8ZM9R;
 				INFOPLIST_FILE = Perimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RK78J8ZM9R;
 				INFOPLIST_FILE = Perimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
