@@ -37,10 +37,10 @@ class SignUpScreenViewController: UIViewController{
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
+        let login = signal()
+        var userType = login.checkPrivs()
         let userEmail = emailTextField.text;
         let userPassword = passwordTextField.text;
-        
-        
         
         let alert = UIAlertController(title: "Oops! Not so fast.", message: "Please make sure you enter both your email and your password", preferredStyle: .alert)
         
@@ -60,6 +60,7 @@ class SignUpScreenViewController: UIViewController{
             present(alert, animated: true, completion: nil)
             return
         }
+        
         
     }
     
