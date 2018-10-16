@@ -75,7 +75,7 @@ class FirebaseAPI{
             }
         }
     }
-      
+    
     
     /// Gets a userProfile from a specific userId
     ///
@@ -114,6 +114,42 @@ class FirebaseAPI{
             }
         }
     }
+    
+    //sends message to specified chatroom and updates last message in chat room
+    func sendMessage(message: Message, chatRoom: ChatRoom, completion: @escaping (Error?)->Void){
+        
+        let chatRef = db.collection("ChatRooms").document(chatRoom.id)
+        chatRef.updateData(["lastMessage": message.dictionary])
+        
+        let dbRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+    
+        dbRef.getDocument{ (snapShot,error) in
+            if error == nil{
+                if let data = snapShot?.data(), let messages = data["messages"]{
+                    do{
+                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options:[])
+                        var messages = try JSONDecoder().decode([Message].self, from: jsonData)
+                        messages.append(message)
+                        
+                        let newMessagesData = try JSONEncoder().encode(messages)
+                        let newMessages  = try JSONSerialization.jsonObject(with: newMessagesData, options:[])
+                        dbRef.updateData(["messages" : newMessages])
+                         completion(nil)
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            else{
+                completion(error)
+            }
+        }
+                   
+    }
+    
+    
+  
 
     /// Fetchs all the chatrooms from firebase
     ///
