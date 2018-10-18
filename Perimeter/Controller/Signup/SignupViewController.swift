@@ -14,6 +14,20 @@ class SignUpScreenViewController: UIViewController{
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    override func viewDidLoad() {
+        //FirebaseAPI().createAccount(profile: "diago@email.com", password: "password") { (_, _) in
+        
+    }
+    
+    //super.viewDidLoad()
+}
+
+extension SignUpScreenViewController {
+    
+    //override func viewDidLoad() {
+      //  FirebaseAPI().createAccount(profile: "diago@gmail.com", password: "password", completion: ())
+    //}
+    
     func validate(field: UITextField) -> String?{
         guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             return nil
@@ -23,7 +37,7 @@ class SignUpScreenViewController: UIViewController{
             return nil
         }
         
-        let range = NSMakeRange(0, NSString(string: trimmedText).length)
+        let range = NSMakeRange(0, trimmedText.count)
         let allMatches = dataDetector.matches(in: trimmedText, options: [], range: range)
         
         if allMatches.count == 1,
@@ -37,8 +51,8 @@ class SignUpScreenViewController: UIViewController{
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
-        let login = signal()
-        var userType = login.checkPrivs()
+        //var userType = login.checkPrivs()
+        
         let userEmail = emailTextField.text;
         let userPassword = passwordTextField.text;
         
@@ -61,11 +75,15 @@ class SignUpScreenViewController: UIViewController{
             return
         }
         
+        FirebaseAPI().signIn(email: userEmail!, password: userPassword!){(success, userEmail) in
+            print("signed in!")
+            print(success, userEmail)
+        }
         
     }
     
     @IBAction func createAccountButton(_ sender: UIButton) {
         
     }
-
+    
 }
