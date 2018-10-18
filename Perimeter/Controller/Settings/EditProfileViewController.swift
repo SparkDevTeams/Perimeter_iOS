@@ -11,6 +11,8 @@ import UIKit
 
 class EditProfileTableViewController: UITableViewController {
     
+    let userProfile = UserProfile.currentUserProfile
+    
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
     
@@ -23,9 +25,14 @@ class EditProfileTableViewController: UITableViewController {
         print("Saving user changes ")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        
+        displayNameTextField.text = userProfile?.displayName
+        FirebaseAPI().change
+    
     }
     
     @IBAction func editProfilePicturePressed(_ sender: Any) {
@@ -55,6 +62,7 @@ class EditProfileTableViewController: UITableViewController {
         
         self.present(actionSheet, animated: true, completion: nil)
     }
+    
     
 }
 

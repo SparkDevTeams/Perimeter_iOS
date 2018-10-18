@@ -24,9 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-        //showMain()
+        showMain()
         //showSignup()
-        showOnboarding()
+        //showOnboarding()
+        login()
 
         return true
     }
@@ -93,6 +94,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func login(){
+        
+        FirebaseAPI().signIn(email: "User1@perimeter.com", password: "Password") { (error, user) in
+            if (error != nil){
+                
+                print(error?.localizedDescription)
+            }else{
+                guard let userId = user?.uid else {return}
+                
+                FirebaseAPI().getUserProfileFromUid(userId, completion: { (error, userProfile) in
+                    if (error != nil) {
+                        print(error?.localizedDescription)
+                    } else {
+                        UserProfile.currentUserProfile = userProfile
+                    }
+                })
+            }
+        }
+        
+        
+    }
 
 }
 
