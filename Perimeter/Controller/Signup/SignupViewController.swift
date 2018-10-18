@@ -29,9 +29,9 @@ extension SignUpScreenViewController {
     //}
     
     func validate(field: UITextField) -> String?{
-        guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+        //guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             return nil
-        }
+        //}
         
         guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else{
             return nil
