@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settingsSB = UIStoryboard(name: "Settings", bundle: nil)
         
         let settingsVc = settingsSB.instantiateViewController(withIdentifier: "SettingsVC")
-        let inboxVc = InboxTableViewController(style: .plain)
+        let inboxVc = InboxTableViewController()
         
         let settingsNc = UINavigationController(rootViewController: settingsVc)
         settingsNc.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 0)

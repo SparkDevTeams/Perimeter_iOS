@@ -24,7 +24,7 @@ class InboxTableViewCell: UITableViewCell {
     
     var dateFormatter : DateFormatter = {
         let date = DateFormatter()
-        date.dateFormat = "h:mm a"
+        date.dateFormat = "h:min"
         return date
     }()
     

@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class InboxTableViewController: UITableViewController {
     //var chatrooms = [String]()
     var chatrooms = [ChatRoom]()
-
+    
     let cellIdentifer = "InboxCell"
     
     let firebase = FirebaseAPI()
@@ -41,10 +42,20 @@ class InboxTableViewController: UITableViewController {
     }
 }
 
+    //initialize chatroom
+
+
+
+    // create a function setting the image,messages, time equal to themselves
+
+
 
 
 // MARK: - UITableViewDelegate
 extension InboxTableViewController {
+    
+    
+    //var chatroom : [ChatRoom]()
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -61,11 +72,14 @@ extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inboxCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! InboxTableViewCell
+        loadChatroomInfo(index: indexPath)
         return inboxCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatrooms.count
+//        return chatrooms.count
+        return 3
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -75,4 +89,19 @@ extension InboxTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
+    
+    func loadChatroomInfo(index: IndexPath) -> Void {
+        print("Cell \(index) was loaded")
+        
+    }
+    
+    func chatroom(index: IndexPath , cell: InboxTableViewCell) -> Void {
+       cell.chatFinalMessage = lastMessage
+       //cell.chatRoomImage = chatrooms[index]
+       //cell.chatMessageTime.text =
+       //cell.chatRoomName =
+        
+        
+    }
+    
 }
