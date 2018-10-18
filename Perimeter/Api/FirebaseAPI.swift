@@ -56,6 +56,27 @@ class FirebaseAPI{
         }
     }
     
+    
+    public func changeDisplayName(newDisplayName: String, uid: String, completion: @escaping (Error?) -> Void) {
+        // get a reference to the specific user document and fetch the documents
+        let dbRef = db.collection("Users").document(uid)
+        dbRef.getDocument { (snapshot, error) in
+            // there was a error
+            if error != nil {
+                completion(error)
+                return
+
+            } else {
+                dbRef.updateData(["displayName":newDisplayName])
+                self.getUserProfileFromUid(uid, completion: {(error,profile) in
+                    completion(nil)
+
+                });
+            }
+        }
+    }
+    
+    
     /// Gets a userProfile from a specific userId
     ///
     /// - Parameters:
@@ -93,6 +114,42 @@ class FirebaseAPI{
             }
         }
     }
+    
+    //sends message to specified chatroom and updates last message in chat room
+    func sendMessage(message: Message, chatRoom: ChatRoom, completion: @escaping (Error?)->Void){
+        
+        let chatRef = db.collection("ChatRooms").document(chatRoom.id)
+        chatRef.updateData(["lastMessage": message.dictionary])
+        
+        let dbRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+    
+        dbRef.getDocument{ (snapShot,error) in
+            if error == nil{
+                if let data = snapShot?.data(), let messages = data["messages"]{
+                    do{
+                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options:[])
+                        var messages = try JSONDecoder().decode([Message].self, from: jsonData)
+                        messages.append(message)
+                        
+                        let newMessagesData = try JSONEncoder().encode(messages)
+                        let newMessages  = try JSONSerialization.jsonObject(with: newMessagesData, options:[])
+                        dbRef.updateData(["messages" : newMessages])
+                         completion(nil)
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            else{
+                completion(error)
+            }
+        }
+                   
+    }
+    
+    
+  
 
     /// Fetchs all the chatrooms from firebase
     ///

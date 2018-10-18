@@ -50,5 +50,17 @@ struct Message: Codable {
         let messageSix = Message(dateSent: Date() + 5, message: "Hey when are you coming to the library", senderId: "WTYeGambWghxX7K11IWLVS7Odmh2", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "6")
         return [messageOne, messageTwo, messageThree, messageFour, messageFive, messageSix]
     }
+    
+    var dictionary: [String: Any]{
+        do{
+            let jsonData = try JSONEncoder().encode(self)
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String:Any]
+            return json
+        }
+        catch{
+            print(error.localizedDescription)
+            return [:]
+        }
+    }
 }
 
