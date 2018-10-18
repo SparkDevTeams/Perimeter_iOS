@@ -33,8 +33,8 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="oT5-Y1-9y7"/>
                                         <include reference="CmH-LZ-qoa"/>
+                                        <exclude reference="oT5-Y1-9y7"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -88,6 +88,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="xsE-ff-QYV" eventType="touchUpInside" id="jlW-Ye-cvD"/>
+                                    <action selector="signupButtonTapped:" destination="xsE-ff-QYV" eventType="touchUpInside" id="x4J-A1-Yk2"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gun-GX-h8r">
@@ -197,43 +198,43 @@
                                 <exclude reference="Iop-yB-36a"/>
                                 <exclude reference="d7y-5Z-qaC"/>
                                 <exclude reference="lOT-vQ-1gj"/>
-                                <exclude reference="xoR-my-VWv"/>
                                 <exclude reference="fxX-QC-uOz"/>
-                                <exclude reference="xHG-3m-Gdh"/>
-                                <exclude reference="uTZ-Rh-az1"/>
-                                <exclude reference="cU9-pa-Zsz"/>
-                                <exclude reference="K1p-u1-sRe"/>
+                                <exclude reference="xoR-my-VWv"/>
                                 <exclude reference="06n-dt-qft"/>
-                                <exclude reference="aoK-6G-NOt"/>
                                 <exclude reference="2Ol-4E-fdF"/>
+                                <exclude reference="K1p-u1-sRe"/>
+                                <exclude reference="aoK-6G-NOt"/>
+                                <exclude reference="cU9-pa-Zsz"/>
                                 <exclude reference="oeR-ZK-X7b"/>
-                                <exclude reference="RXl-o8-r36"/>
-                                <exclude reference="VbE-MX-XTY"/>
+                                <exclude reference="uTZ-Rh-az1"/>
+                                <exclude reference="xHG-3m-Gdh"/>
                                 <exclude reference="Buo-6y-K4m"/>
-                                <exclude reference="SUY-ix-cxt"/>
                                 <exclude reference="CO3-Z2-SsH"/>
+                                <exclude reference="RXl-o8-r36"/>
+                                <exclude reference="SUY-ix-cxt"/>
+                                <exclude reference="VbE-MX-XTY"/>
                                 <exclude reference="aff-kn-NPl"/>
                                 <exclude reference="iSl-IO-aEK"/>
                                 <exclude reference="3ZJ-rj-kCy"/>
                                 <exclude reference="Gjn-r4-Idw"/>
                                 <exclude reference="Ia8-Uy-yJs"/>
-                                <exclude reference="tAP-1D-mcY"/>
                                 <exclude reference="cGd-Dn-igo"/>
+                                <exclude reference="tAP-1D-mcY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="xoR-my-VWv"/>
                                 <include reference="fxX-QC-uOz"/>
                                 <exclude reference="xYp-tm-u0i"/>
-                                <include reference="cU9-pa-Zsz"/>
+                                <include reference="xoR-my-VWv"/>
                                 <include reference="2Ol-4E-fdF"/>
                                 <exclude reference="Eik-Fr-yTY"/>
-                                <include reference="CO3-Z2-SsH"/>
+                                <include reference="cU9-pa-Zsz"/>
                                 <exclude reference="AZF-GH-OOl"/>
+                                <include reference="CO3-Z2-SsH"/>
                                 <include reference="iSl-IO-aEK"/>
-                                <exclude reference="VF3-jD-B9T"/>
                                 <include reference="Gjn-r4-Idw"/>
+                                <exclude reference="VF3-jD-B9T"/>
                                 <include reference="tAP-1D-mcY"/>
                             </mask>
                         </variation>
@@ -242,16 +243,16 @@
                                 <include reference="Iop-yB-36a"/>
                                 <include reference="d7y-5Z-qaC"/>
                                 <include reference="lOT-vQ-1gj"/>
-                                <include reference="xHG-3m-Gdh"/>
-                                <exclude reference="uTZ-Rh-az1"/>
-                                <exclude reference="K1p-u1-sRe"/>
                                 <include reference="06n-dt-qft"/>
+                                <exclude reference="K1p-u1-sRe"/>
                                 <include reference="aoK-6G-NOt"/>
                                 <include reference="oeR-ZK-X7b"/>
-                                <include reference="RXl-o8-r36"/>
-                                <include reference="VbE-MX-XTY"/>
+                                <exclude reference="uTZ-Rh-az1"/>
+                                <include reference="xHG-3m-Gdh"/>
                                 <exclude reference="Buo-6y-K4m"/>
+                                <include reference="RXl-o8-r36"/>
                                 <include reference="SUY-ix-cxt"/>
+                                <include reference="VbE-MX-XTY"/>
                                 <include reference="aff-kn-NPl"/>
                                 <include reference="3ZJ-rj-kCy"/>
                                 <include reference="Ia8-Uy-yJs"/>
@@ -260,8 +261,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="Gun-GX-h8r" id="tVI-NH-VUD"/>
                         <outlet property="emailTextField" destination="5b9-Au-YXs" id="pWZ-kA-d7T"/>
                         <outlet property="passwordTextField" destination="Gun-GX-h8r" id="nsr-qR-whT"/>
+                        <outlet property="userNameTextField" destination="7aX-SM-bbn" id="6I1-ct-4eV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFD-zY-Uh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
