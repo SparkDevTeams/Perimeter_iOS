@@ -12,7 +12,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="GBQ-aN-6Ry">
             <objects>
-                <viewController storyboardIdentifier="SignupVC" id="xsE-ff-QYV" customClass="CreateAccountViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountViewController" id="xsE-ff-QYV" customClass="CreateAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YVn-bJ-3i3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

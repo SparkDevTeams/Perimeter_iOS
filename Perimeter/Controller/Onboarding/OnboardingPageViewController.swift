@@ -43,10 +43,7 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         guard viewControllerList.count > nextIndex else {return nil}
         return viewControllerList[nextIndex]
     }
-    
-//    @IBAction func toSignup(_ sender: AnyObject) {
-//        let vc = signUpStoryboard.i    }
-//
+
     
 }
 

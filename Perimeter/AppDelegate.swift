@@ -41,6 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
     
+//    func showCreatAccount() {
+//        let createAccountSB = UIStoryboard(name: "CreateAccount", bundle: nil)
+//        
+//        let createAccountVC = createAccountSB.instantiateViewController(withIdentifier: "CreateAccountVC")
+//
+//        window = UIWindow()
+//        window?.rootViewController = createAccountVC
+//        window?.makeKeyAndVisible()
+//    }
+    
     func showOnboarding() {
         let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
         
