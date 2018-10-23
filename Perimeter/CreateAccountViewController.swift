@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateAccountViewController: UIViewController {
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -149,4 +150,11 @@ class CreateAccountViewController: UIViewController {
 //            self.present(alertController, animated: true, completion:nil)
 //        }
 //    }
+    
+    @IBAction func signinPressed(_ sender: Any) {
+        let signupSB = UIStoryboard(name: "Signup", bundle: nil)
+        
+        let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
+        show(signupVC, sender: self)
+    }
 }

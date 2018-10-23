@@ -63,13 +63,12 @@ class SignUpScreenViewController: UIViewController{
         
     }
     
+
     @IBAction func createOnePressed(_ sender: Any) {
-        print("Create One pressed")
-        let createAccountVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController") as! CreateAccountViewController
+        let createAccountSB = UIStoryboard(name: "CreateAccount", bundle: nil)
         
-        self.present(createAccountVC, animated: true)
-       
+        let createAccountVC = createAccountSB.instantiateViewController(withIdentifier: "CreateAccountViewController")
+        show(createAccountVC, sender: self)
     }
-    
 
 }
