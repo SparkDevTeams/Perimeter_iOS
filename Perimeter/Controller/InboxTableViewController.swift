@@ -14,42 +14,62 @@ class InboxTableViewController: UITableViewController {
     //var chatrooms = [String]()
     var chatrooms = [ChatRoom]()
     
-    let cellIdentifer = "InboxCell"
+    private let cellIdentifer = "InboxCell"
     
     let firebase = FirebaseAPI()
+    
+    var chatRoomDocumentRef: CollectionReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
-        title = "Chatrooms"
+        //loadChatRooms()
+        title = "Chat Rooms"
+        
+//        let dataBase = Firestore.firestore()
+//        chatRoomDocumentRef = dataBase.collection("ChatRooms")
+//        chatRoomDocumentRef?.addSnapshotListener({(snapshot,error) in
+//
+//
+//        do{
+//            var chatrooms = [ChatRoom]()
+//            let documents = snapshot!.documents
+//
+//            for document in documents {
+//                let data = document.data()
+//                let jsonData = try  JSONSerialization.data(withJSONObject: data, options: [])
+//                let chatroom = try JSONDecoder().decode(ChatRoom.self, from: jsonData)
+//                chatrooms.append(chatroom)
+//
+//            }
+//            self.chatrooms = chatrooms
+//            self.tableView.reloadData()
+//        }
+//        catch {
+//            print(error)
+//
+//        }
+//
+//    })
     }
     
-    func registerCell() {
+    private func registerCell() {
         let nib = UINib(nibName: "InboxTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellIdentifer)
     }
 
     private func loadChatRooms(){
         
-        firebase.fetchAllChatRooms{(chatRooms, error) in
-            self.chatrooms = chatRooms
+        firebase.fetchAllChatRooms{(chatrooms, error) in
+            self.chatrooms = chatrooms
             
-            for chatRoom in chatRooms{
+            for chatRoom in chatrooms{
                 self.firebase.fetchMessagesForChatRoom(chatRoom, completion: {(messages,messagesRef,error) in
                     self.tableView.reloadData() })
             }
         }
     }
 }
-
-    //initialize chatroom
-
-
-
-    // create a function setting the image,messages, time equal to themselves
-
-
-
 
 // MARK: - UITableViewDelegate
 extension InboxTableViewController {
@@ -59,9 +79,11 @@ extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let indexPath = tableView.indexPathForSelectedRow
+        //let indexPath = tableView.indexPathForSelectedRow
        
-        let currentCell = tableView.cellForRow(at: indexPath!)
+        let currentCell = tableView.cellForRow(at: indexPath)
+        //messageVC will be provided by Davone!
+       //let destinationViewController = MessageTableViewController(chatRoom: ChatRoom)
         
        let destinationViewController = MessageThreadViewController()
        navigationController?.pushViewController(destinationViewController, animated: true)
@@ -72,13 +94,20 @@ extension InboxTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let inboxCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! InboxTableViewCell
+        
         loadChatroomInfo(index: indexPath)
+        //let chatRoom = chatrooms[indexPath.row]
+        
+        //inboxCell.chatRoom = chatRoom
+        
+    
         return inboxCell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return chatrooms.count
         return 3
+            //chatrooms.count
         
     }
     
@@ -88,6 +117,7 @@ extension InboxTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
+        
     }
     
     func loadChatroomInfo(index: IndexPath) -> Void {
@@ -95,13 +125,5 @@ extension InboxTableViewController {
         
     }
     
-    func chatroom(index: IndexPath , cell: InboxTableViewCell) -> Void {
-       cell.chatFinalMessage = lastMessage
-       //cell.chatRoomImage = chatrooms[index]
-       //cell.chatMessageTime.text =
-       //cell.chatRoomName =
-        
-        
-    }
     
 }
