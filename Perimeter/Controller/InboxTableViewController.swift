@@ -85,8 +85,8 @@ extension InboxTableViewController {
         //messageVC will be provided by Davone!
        //let destinationViewController = MessageTableViewController(chatRoom: ChatRoom)
         
-       let destinationViewController = MessageThreadViewController()
-       navigationController?.pushViewController(destinationViewController, animated: true)
+//        let destinationViewController = MessageTableViewController()
+//       navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 

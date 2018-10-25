@@ -14,42 +14,47 @@ import FirebaseAuth
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-        var window: UIWindow?
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-            // Override point for customization after application launch.
+    var window: UIWindow?
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
 
+        // Firebase Initialization
+        FirebaseApp.configure()
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+       
+        /* configure tabbar bar view, if you want to change the entry point of the app
+         comment out configureTabBarView and instantiate your own view and set it as the rootView*/
+        showMain()
+        //showSignup()
+        //showOnboarding()
+        login()
 
-            // Firebase Initialization
-            FirebaseApp.configure()
-           
-            /* configure tabbar bar view, if you want to change the entry point of the app
-             comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-             //showMain()
-            //showSignup()
-            showOnboarding()
-
-            return true
-        }
+        return true
+    }
     
-        func showSignup() {
-            let signupSB = UIStoryboard(name: "Signup", bundle: nil)
-            
-            let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
-            
-            window = UIWindow()
-            window?.rootViewController = signupVC
-            window?.makeKeyAndVisible()
-        }
+    func showSignup() {
+        let signupSB = UIStoryboard(name: "Signup", bundle: nil)
+        
+        let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
+        
+        window = UIWindow()
+        window?.rootViewController = signupVC
+        window?.makeKeyAndVisible()
+    }
     
-        func showOnboarding() {
-            let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
-            
-            let onboardingVC = onboardingSB.instantiateViewController(withIdentifier: "OnboardingVC")
-            
-            window = UIWindow()
-            window?.rootViewController = onboardingVC
-            window?.makeKeyAndVisible()
-        }
+    func showOnboarding() {
+        let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
+        
+        let onboardingVC = onboardingSB.instantiateViewController(withIdentifier: "OnboardingVC")
+        
+        window = UIWindow()
+        window?.rootViewController = onboardingVC
+        window?.makeKeyAndVisible()
+    }
     
     func showMain() {
         
@@ -93,6 +98,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func login(){
+        
+        FirebaseAPI().signIn(email: "User1@perimeter.com", password: "Password") { (error, user) in
+            if (error != nil){
+                
+                print(error?.localizedDescription)
+            }else{
+                guard let userId = user?.uid else {return}
+                
+                FirebaseAPI().getUserProfileFromUid(userId, completion: { (error, userProfile) in
+                    if (error != nil) {
+                        print(error?.localizedDescription)
+                    } else {
+                        UserProfile.currentUserProfile = userProfile
+                    }
+                })
+            }
+        }
+        
+        
+    }
 
 }
 
