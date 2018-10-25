@@ -17,17 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
 
         // Firebase Initialization
         FirebaseApp.configure()
         
-        let message = Message.testMessages()
-        let chatRoom = 
-        FirebaseAPI().sendMessage(message: message[0], chatRoom: chatRoom){ (error)in
-            
-        }
-        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+       
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         showMain()
