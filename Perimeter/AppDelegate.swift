@@ -21,12 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Firebase Initialization
         FirebaseApp.configure()
-       
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-        //showMain()
+        showMain()
         //showSignup()
-        showOnboarding()
+        //showOnboarding()
 
         return true
     }

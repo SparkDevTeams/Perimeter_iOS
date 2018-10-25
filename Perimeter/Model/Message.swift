@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Firebase
 
 /// Represents a single message
 struct Message: Codable {
     
     /// The date the message was sent
-    let dateSent: Date
+    let timestamp: Timestamp
     
     /// The message that was sent
     let message: String?
@@ -38,17 +39,21 @@ struct Message: Codable {
     /// The unique identifier for the message
     let messageId: String
     
-    /// Returns an array of test messages
-    ///
-    /// - Returns: An array of messages
-    static func testMessages() -> [Message] {
-        let messageOne = Message(dateSent: Date(), message: "Hey when are you coming to the library", senderId: "WTYeGambWghxX7K11IWLVS7Odmh2", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "1")
-        let messageTwo = Message(dateSent: Date() + 1, message: "Hey when are you coming to the library", senderId: "HCB17P4Rm4VAOanT9tggOWtWJMo1", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "2")
-        let messageThree = Message(dateSent: Date() + 2, message: "Hey when are you coming to the library", senderId: "WTYeGambWghxX7K11IWLVS7Odmh2", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "3")
-        let messageFour = Message(dateSent: Date() + 3, message: "Hey when are you coming to the library", senderId: "WTYeGambWghxX7K11IWLVS7Odmh2", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "4")
-        let messageFive = Message(dateSent: Date() + 4, message: "Hey when are you coming to the library", senderId: "HCB17P4Rm4VAOanT9tggOWtWJMo1", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "5")
-        let messageSix = Message(dateSent: Date() + 5, message: "Hey when are you coming to the library", senderId: "WTYeGambWghxX7K11IWLVS7Odmh2", messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: "ECS", messageId: "6")
-        return [messageOne, messageTwo, messageThree, messageFour, messageFive, messageSix]
+    let senderDisplayName: String
+    
+    var dictionary: [String: Any] {
+        do {
+            let jsonEncoder = JSONEncoder()
+            jsonEncoder.dateEncodingStrategy = .secondsSince1970
+            let jsonData = try jsonEncoder.encode(self)
+            var json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
+            json["timestamp"] = timestamp
+            return json
+        } catch {
+            print("Error converting to json \(error.localizedDescription)")
+            return [:]
+        }
     }
+    
 }
 
