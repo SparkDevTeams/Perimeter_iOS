@@ -67,7 +67,7 @@
 		A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Perimeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C290A301215E997C1B1DF429 /* Pods-Perimeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Perimeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Perimeter/Pods-Perimeter.release.xcconfig"; sourceTree = "<group>"; };
 		E653D1312174E61D00952671 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
-		E653D13A2176866F00952671 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Perimeter/CreateAccountViewController.swift; sourceTree = SOURCE_ROOT; };
+		E653D13A2176866F00952671 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = Perimeter/Controller/CreateAccount/CreateAccountViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,6 @@
 		534104E021547F57009B2C65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E653D13A2176866F00952671 /* CreateAccountViewController.swift */,
 				E653D1352174E66F00952671 /* CreateAccount */,
 				53727957216E774C008D2820 /* Onboarding */,
 				53727954216E58C5008D2820 /* Signup */,
@@ -227,6 +226,7 @@
 		E653D1352174E66F00952671 /* CreateAccount */ = {
 			isa = PBXGroup;
 			children = (
+				E653D13A2176866F00952671 /* CreateAccountViewController.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";

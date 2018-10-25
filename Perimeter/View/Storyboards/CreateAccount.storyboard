@@ -46,6 +46,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="xsE-ff-QYV" eventType="touchUpInside" id="Gmh-7V-8fX"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gun-GX-h8r" userLabel="Confirm Password">
                                 <rect key="frame" x="45" y="370" width="285" height="30"/>
