@@ -24,7 +24,7 @@ class InboxTableViewCell: UITableViewCell {
     
     var dateFormatter : DateFormatter = {
         let date = DateFormatter()
-        date.dateFormat = "h:min"
+        date.dateFormat = "h:mm a"
         return date
     }()
     
@@ -37,7 +37,7 @@ class InboxTableViewCell: UITableViewCell {
             if let lastMessage = chatRoom?.lastMessage {
                 
                 chatFinalMessage.text = lastMessage.message
-                chatMessageTime.text = dateFormatter.string(from: lastMessage.dateSent)}
+                chatMessageTime.text = dateFormatter.string(from: lastMessage.timestamp.dateValue())}
             else {
                 chatFinalMessage.text = "No Messages"
                 chatMessageTime.text = "N/A"

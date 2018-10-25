@@ -117,7 +117,7 @@ extension MessageTableViewController: MessageInputDelegate {
     func userDidPressSendButton(message: String?) {
         let messageId = UUID().uuidString
         let senderId = Auth.auth().currentUser!.uid
-        let userDisplayName = UserProfile.currentUserProfile!.displayName
+        let userDisplayName = "Ashy"
         let messageOne = Message(timestamp: Timestamp.init(), message: message, senderId: senderId, messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: chatRoom.id, messageId: messageId, senderDisplayName: userDisplayName)
         
         print(Date().timeIntervalSince1970)

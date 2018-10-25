@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         showMain()
         //showSignup()
         //showOnboarding()
-        login()
+        //login()
 
         return true
     }
