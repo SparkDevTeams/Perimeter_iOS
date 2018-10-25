@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-
         // Firebase Initialization
         FirebaseApp.configure()
         
@@ -26,12 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
-        
+       
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         showMain()
         //showSignup()
         //showOnboarding()
+        login()
 
         return true
     }
@@ -98,6 +98,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func login(){
+        
+        FirebaseAPI().signIn(email: "User1@perimeter.com", password: "Password") { (error, user) in
+            if (error != nil){
+                
+                print(error?.localizedDescription)
+            }else{
+                guard let userId = user?.uid else {return}
+                
+                FirebaseAPI().getUserProfileFromUid(userId, completion: { (error, userProfile) in
+                    if (error != nil) {
+                        print(error?.localizedDescription)
+                    } else {
+                        UserProfile.currentUserProfile = userProfile
+                    }
+                })
+            }
+        }
+        
+        
+    }
 
 }
 
