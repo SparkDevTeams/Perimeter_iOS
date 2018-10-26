@@ -40,7 +40,7 @@ class InboxTableViewCell: UITableViewCell {
                 chatRoomImage.layer.cornerRadius=self.chatRoomImage.frame.size.width / 2;
                 chatRoomImage.clipsToBounds = true;
                 chatRoomImage.layer.borderWidth = 1.0;
-                //chatRoomImage.layer.borderColor = ([UIColor .purple] as! CGColor);
+                chatRoomImage.layer.borderColor = UIColor.white.cgColor
             }
           
             if let lastMessage = chatRoom?.lastMessage {
