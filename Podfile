@@ -11,5 +11,6 @@ target 'Perimeter' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
-
+  pod 'Firebase/Storage'
+  
 end

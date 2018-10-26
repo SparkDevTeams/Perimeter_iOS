@@ -64,11 +64,18 @@ extension EditProfileTableViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userProfileImageView.image = image
+            let imageUrl = info[UIImagePickerControllerImageURL] as? String
+            FirebaseAPI().uploadImage(path: imageUrl!) { (url,error) in
+                if error == nil{
+                    UserProfile.currentUserProfile?.profileImageUrl = url
+                }
+            }
+            
         } else {
             //Error Message
         }
