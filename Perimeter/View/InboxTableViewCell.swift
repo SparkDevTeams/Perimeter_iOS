@@ -28,6 +28,23 @@ class InboxTableViewCell: UITableViewCell {
         return date
     }()
     
+    
+    var chatRoom: ChatRoom? {
+        didSet{
+            
+            chatRoomName.text = chatRoom?.location
+            
+            if let lastMessage = chatRoom?.lastMessage {
+                
+                chatFinalMessage.text = lastMessage.message
+                chatMessageTime.text = dateFormatter.string(from: lastMessage.timestamp.dateValue())}
+            else {
+                chatFinalMessage.text = "No Messages"
+                chatMessageTime.text = "N/A"
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
