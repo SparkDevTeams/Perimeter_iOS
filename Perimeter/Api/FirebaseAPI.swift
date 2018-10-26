@@ -36,7 +36,7 @@ class FirebaseAPI{
         }
     }
     
-    public func createAccount(profile: UserProfile, password: String, completion: @escaping(Error?,User?)-> Void){
+    public func createAccount(profile:UserProfile, password: String, completion: @escaping(Error?,User?)-> Void){
         
         Auth.auth().createUser(withEmail: profile.email, password: password) { (authResult, error) in
     

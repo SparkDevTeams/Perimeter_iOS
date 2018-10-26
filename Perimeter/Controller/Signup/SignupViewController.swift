@@ -8,41 +8,33 @@
 import Foundation
 import UIKit
 
-class SignUpScreenViewController: UIViewController{
+class SignUpScreenViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let profile = UserProfile(firstName: "", lastName: "", email: "diago@email.com", profileImageUrl: nil, displayName: "")
+    
     override func viewDidLoad() {
-        //FirebaseAPI().createAccount(profile: "diago@email.com", password: "password") { (_, _) in
-        
+        super.viewDidLoad()
+        FirebaseAPI().createAccount(profile: profile, password: "password") { (_, _) in
+    }
     }
     
-    //super.viewDidLoad()
-}
-
-extension SignUpScreenViewController {
-    
-    //override func viewDidLoad() {
-      //  FirebaseAPI().createAccount(profile: "diago@gmail.com", password: "password", completion: ())
-    //}
-    
     func validate(field: UITextField) -> String?{
-        //guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+        guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else {
             return nil
-        //}
-        
-        guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else{
+        }
+        guard let trimmedText = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             return nil
         }
         
-        let range = NSMakeRange(0, trimmedText.count)
+        let range = NSMakeRange(0, NSString(string: trimmedText).length)
         let allMatches = dataDetector.matches(in: trimmedText, options: [], range: range)
         
         if allMatches.count == 1,
-            allMatches.first?.url?.absoluteString.contains("mailto:") == true
-        {
+            allMatches.first?.url?.absoluteString.contains("mailto:") == true{
             return trimmedText
         }
         
@@ -75,15 +67,14 @@ extension SignUpScreenViewController {
             return
         }
         
-        FirebaseAPI().signIn(email: userEmail!, password: userPassword!){(success, userEmail) in
+        FirebaseAPI().signIn(email: "diago@email.com", password: "password"){(success, userEmail) in
             print("signed in!")
-            print(success, userEmail)
+            print(success, userEmail as Any)
         }
         
     }
-    
-    @IBAction func createAccountButton(_ sender: UIButton) {
-        
-    }
-    
 }
+
+    
+
+
