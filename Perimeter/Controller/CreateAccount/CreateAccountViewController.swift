@@ -1,13 +1,6 @@
-//
-//  CreateAccountViewController.swift
-//  Perimeter
-//
-//  Created by Joshua Martinez on 10/16/18.
-//  Copyright © 2018 SparkDev. All rights reserved.
-//
-
 import UIKit
 
+// This class creates a new account
 class CreateAccountViewController: UIViewController {
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -23,15 +16,12 @@ class CreateAccountViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
     @IBAction func signupButtonTapped(_ sender: Any) {
         print("Sign up button tapped")
         
         // validate required fields are not empty
-        if (userNameTextField.text?.isEmpty)! ||
-            (emailTextField.text?.isEmpty)! ||
-            (passwordTextField.text?.isEmpty)! ||
-            (confirmPasswordTextField.text?.isEmpty)!
+        if (userNameTextField.text?.isEmpty)! || (emailTextField.text?.isEmpty)! ||
+            (passwordTextField.text?.isEmpty)! || (confirmPasswordTextField.text?.isEmpty)!
         {
             // Display Alrt message and return
             displayMessage(userMessage: "All fields are required")
@@ -39,7 +29,6 @@ class CreateAccountViewController: UIViewController {
         }
         
         // validate required password parameters
-        // Minimum 1 uppercase, special character, number, lower case, and at least 8 characters long
         if isValidEmail(testStr: emailTextField.text!) != true
         {
             // Display an alert message and return
@@ -48,12 +37,11 @@ class CreateAccountViewController: UIViewController {
         }
         
         // validate required password parameters
-        // Minimum 1 uppercase, special character, number, lower case, and at least 8 characters long
         if isValidPassword(testStr: passwordTextField.text!) != true
         {
-        // Display an alert message and return
-        displayMessage(userMessage: "Password must at contain at least: \n \n 1 Capital letter \n1 Lower case \n 1 Special character \n 1 Number \n 8 Characters long")
-        return
+            // Display an alert message and return
+            displayMessage(userMessage: "Password must at contain at least: \n \n 1 Capital letter \n1 Lower case \n 1 Special character \n 1 Number \n 8 Characters long")
+            return
         }
     
         // Validate Password
@@ -75,28 +63,32 @@ class CreateAccountViewController: UIViewController {
         
         // start activity indicator
         myActivityIndicator.startAnimating()
-        
         view.addSubview(myActivityIndicator)
         
+        // create new profile
         let profile = UserProfile(firstName: "", lastName: "", email: emailTextField.text!, profileImageUrl: nil, displayName: userNameTextField.text!)
         
+        // adds profile to fire base
         FirebaseAPI().createAccount(profile: profile, password: passwordTextField.text!){(error, user) in
-                    
-            if error != nil{
+        
+            // if there is no error go to main page, else display error message
+            if error == nil{
                 
-                print("new user id is ")
-                
-//                print(user?.uid)
+                // let user know they successfully created account
+                print("Created succesffuly")
+                self.displayCongrats(userMessage: "Successfully created account :)")
+                return
+            }
+            else {
+                print(error as Any)
+                self.displayMessage(userMessage: "There is already an account with this Email")
+                return
             }
         }
+        // removes indicator when inbox is reached
         self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.showMain()
     }
-    
-    
-    
+    // function to stop and remove indicator
     func removeActivityIndicator(activityIndicator: UIActivityIndicatorView)
     {
         DispatchQueue.main.async {
@@ -105,11 +97,10 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
-    // create username verifier here
-    
     // test email for correct format
     func isValidEmail(testStr:String?) -> Bool {
         guard testStr != nil else { return false }
+        
         // must contain . @ and atleast 10 characters
         let emailTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[@.]).{10,}")
         return emailTest.evaluate(with: testStr)
@@ -128,6 +119,7 @@ class CreateAccountViewController: UIViewController {
         return passwordTest.evaluate(with: testStr)
     }
     
+    // creates error message template
     func displayMessage(userMessage:String) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
@@ -145,13 +137,32 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
+    // creates alert message for successful account creation
+    func displayCongrats(userMessage:String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Congrats!", message: userMessage, preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) {
+                (action:UIAlertAction!) in
+                // code in this block will trigger when OK button tapped
+                print("OK button Tapped")
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion:nil)
+                    
+                    // go to main site
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.showMain()
+                }
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    // function to go back to login screen
     @IBAction func signinPressed(_ sender: Any) {
         let signupSB = UIStoryboard(name: "Signup", bundle: nil)
-
         let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
         show(signupVC, sender: self)
-        
-        
-        
     }
 }
