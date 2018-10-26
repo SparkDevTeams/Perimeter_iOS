@@ -38,6 +38,24 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
+        // validate required password parameters
+        // Minimum 1 uppercase, special character, number, lower case, and at least 8 characters long
+        if isValidEmail(testStr: emailTextField.text!) != true
+        {
+            // Display an alert message and return
+            displayMessage(userMessage: "Invalid Email")
+            return
+        }
+        
+        // validate required password parameters
+        // Minimum 1 uppercase, special character, number, lower case, and at least 8 characters long
+        if isValidPassword(testStr: passwordTextField.text!) != true
+        {
+        // Display an alert message and return
+        displayMessage(userMessage: "Password must at contain at least: \n \n 1 Capital letter \n1 Lower case \n 1 Special character \n 1 Number \n 8 Characters long")
+        return
+        }
+    
         // Validate Password
         if ((passwordTextField.text?.elementsEqual(confirmPasswordTextField.text!))! != true)
         {
@@ -60,69 +78,6 @@ class CreateAccountViewController: UIViewController {
         
         view.addSubview(myActivityIndicator)
         
-//        // send HTTP Request to register user
-//        let myUrl = URL(string: "http://localhost:8080/api/users")
-//        var request = URLRequest(url:myUrl!)
-//        request.httpMethod = "POST" // compose a query string
-//        request.addValue("application/json", forHTTPHeaderField: "content-type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//
-//        let postString = ["userName": userNameTextField.text!,
-//                          "userEmail": emailTextField.text!,
-//                          "userPassword": passwordTextField.text!,
-//                          ] as [String: String]
-//
-//        do {
-//            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
-//        } catch let error {
-//            print(error.localizedDescription)
-//            displayMessage(userMessage: "Something went wrong. Try again.")
-//            return
-//        }
-//        
-//        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-//            
-//            self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-//            
-//            if error != nil {
-//                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later.")
-//                print("error=\(String(describing: error))")
-//                return
-//            }
-//            // Let's convert response sent from a server side code to a NSDictionary object:
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-//
-//                if let parseJSON = json {
-//
-//                    let userId = parseJSON["userId"] as? String
-//                    print("User id: \(String(describing: userId!))")
-//                    
-//                    if (userId?.isEmpty)!
-//                    {
-//                        // Display an Alert dialog with a friendly error message
-//                        self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-//                        return
-//                    } else {
-//                        self.displayMessage(userMessage: "Successfully Registered a New Account. Please proceed to Sign in")
-//                    }
-//
-//                } else {
-//                    // Display an Alert dialog with a friendly error message
-//                    self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-//                }
-//            } catch {
-//
-//                self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-//
-//                // Display an Alert dialog with a friendly error message
-//                self.displayMessage(userMessage: "Could not successfully perform this request. Please try again later")
-//                print(error)
-//            }
-//        }
-//
-//        task.resume()
-        
         let profile = UserProfile(firstName: "", lastName: "", email: emailTextField.text!, profileImageUrl: nil, displayName: userNameTextField.text!)
         
         FirebaseAPI().createAccount(profile: profile, password: passwordTextField.text!){(error, user) in
@@ -135,6 +90,9 @@ class CreateAccountViewController: UIViewController {
             }
         }
         self.removeActivityIndicator(activityIndicator: myActivityIndicator)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.showMain()
     }
     
     
@@ -145,6 +103,29 @@ class CreateAccountViewController: UIViewController {
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
         }
+    }
+    
+    // create username verifier here
+    
+    // test email for correct format
+    func isValidEmail(testStr:String?) -> Bool {
+        guard testStr != nil else { return false }
+        // must contain . @ and atleast 10 characters
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[@.]).{10,}")
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    // test password for manditory characters
+    func isValidPassword(testStr:String?) -> Bool {
+        guard testStr != nil else { return false }
+        
+        // at least one uppercase,
+        // at least one digit
+        // at least one lowercase
+        // at least one special character
+        // 8 characters total
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=.*[!@#$&*]).{8,}")
+        return passwordTest.evaluate(with: testStr)
     }
     
     func displayMessage(userMessage:String) -> Void {
@@ -165,13 +146,12 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func signinPressed(_ sender: Any) {
-//        let signupSB = UIStoryboard(name: "Signup", bundle: nil)
-//
-//        let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
-//        show(signupVC, sender: self)
+        let signupSB = UIStoryboard(name: "Signup", bundle: nil)
+
+        let signupVC = signupSB.instantiateViewController(withIdentifier: "SignupVC")
+        show(signupVC, sender: self)
         
-//        let appDelegate = UIApplication.shared. as! AppDelegate
-//        AppDelegate.s
+        
         
     }
 }
