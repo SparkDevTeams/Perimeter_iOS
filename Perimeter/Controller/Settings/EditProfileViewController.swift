@@ -63,16 +63,9 @@ class EditProfileTableViewController: UITableViewController {
             userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width/2
             userProfileImageView.clipsToBounds = true
         
-
+        displayNameTextField.text = userProfile?.displayName
     
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-       // self.displayNameTextField.text = self.userProfile?.displayName
-    }
-    
-    
     
     @IBAction func editProfilePicturePressed(_ sender: Any) {
         let imagePickerController = UIImagePickerController()

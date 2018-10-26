@@ -17,18 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
 
         // Firebase Initialization
         FirebaseApp.configure()
         
-        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+       
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
         showMain()
         //showSignup()
         //showOnboarding()
-        login()
+        //login()
 
         return true
     }
@@ -58,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settingsSB = UIStoryboard(name: "Settings", bundle: nil)
         
         let settingsVc = settingsSB.instantiateViewController(withIdentifier: "SettingsVC")
-        let inboxVc = InboxTableViewController(style: .plain)
+        let inboxVc = InboxTableViewController()
         
         let settingsNc = UINavigationController(rootViewController: settingsVc)
         settingsNc.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 0)

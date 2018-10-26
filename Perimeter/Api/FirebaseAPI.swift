@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-
+import CodableFirebase
 /// Class to interact with firebase API
 class FirebaseAPI{
     
@@ -168,8 +168,7 @@ class FirebaseAPI{
                     
                     for document in documents {
                         let data = document.data()
-                        let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
-                        let chatroom = try JSONDecoder().decode(ChatRoom.self, from: jsonData)
+                        let chatroom = try FirestoreDecoder().decode(ChatRoom.self, from: data)
                         chatRooms.append(chatroom)
                     }
                     
@@ -178,6 +177,7 @@ class FirebaseAPI{
                 } catch {
                     print(error)
                 }
+                
             }
         }
     }
@@ -195,24 +195,57 @@ class FirebaseAPI{
             
             if error != nil {
                 completion([],messsagesRef, error)
-            } else {
-                if let data = snapshot?.data(), let messages = data["messages"] {
-                    
+                return
+            }
+            
+            if let snapshotData = snapshot?.data(), let snapshotMessages = snapshotData["messages"] as? [[String: Any]]{
+                
+                var messages = [Message]()
+                
+                for snapshotMessage in snapshotMessages {
                     do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options: [])
-                        let messages = try JSONDecoder().decode([Message].self, from: jsonData)
-                        completion(messages, messsagesRef, nil)
+                        let message = try FirestoreDecoder().decode(Message.self, from: snapshotMessage)
+                        messages.append(message)
                     } catch {
-                        print(error.localizedDescription)
+                        print(error)
+                        completion(messages,messsagesRef, error)
                     }
-                    
-                } else{
-                    let tempError = NSError(domain: "Could not decode messsage", code: 1, userInfo: nil)
-                    completion([], messsagesRef,tempError)
-                    return
                 }
+                completion(messages, messsagesRef, nil)
             }
         }
     }
+<<<<<<< HEAD
+=======
+    
+    func sendTextMessage(_ messageToSend: Message, inChatRoom chatRoom: ChatRoom, completion: @escaping (()->())) {
+        let lastMessage = try! FirebaseEncoder().encode(messageToSend)
+        print(messageToSend.dictionary)
+        print(messageToSend)
+        print(lastMessage)
+        // first get a ref to the chatroom
+        let chatRoomRef = db.collection("ChatRooms").document(chatRoom.id)
+        chatRoomRef.updateData(["lastMessage": messageToSend.dictionary])
+        
+        // add the message to the messages
+        let messsagesRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+        messsagesRef.getDocument { (snapshot, error) in
+            
+            if error != nil {
+                print("There was a error")
+                completion()
+                return
+            }
+            
+            if let snapshotData = snapshot?.data(), var snapshotMessages = snapshotData["messages"] as? [[String: Any]]{
+                
+                snapshotMessages.append(messageToSend.dictionary)
+                messsagesRef.updateData(["messages": snapshotMessages])
+                completion()
+            }
+        }
+    }
+    
+>>>>>>> 42d148b2f05120f51e23c69b00c0cea4849a9faa
 }
 
