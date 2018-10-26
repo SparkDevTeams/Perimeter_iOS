@@ -145,7 +145,6 @@ class FirebaseAPI{
                 completion(error)
             }
         }
-                   
     }
     
     
@@ -215,5 +214,5 @@ class FirebaseAPI{
             }
         }
     }
-
 }
+

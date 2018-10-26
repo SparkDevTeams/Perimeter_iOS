@@ -8,13 +8,19 @@
 
 import Foundation
 import UIKit
+import Kingfisher
+import Firebase
 
 class EditProfileTableViewController: UITableViewController {
     
-    let userProfile = UserProfile.currentUserProfile
+    var userProfile = UserProfile.currentUserProfile
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
+    
+    @IBOutlet weak var firstName: UITextField!
+    
+    @IBOutlet weak var lastName: UITextField!
     
     private func setupNavigationBar() {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveChanges))
@@ -22,18 +28,51 @@ class EditProfileTableViewController: UITableViewController {
     }
     
     @objc func saveChanges() {
+        //createAlert(title: "SUCCESS", message: "You have saved succesfully")
         print("Saving user changes ")
+        
+        if let userId = Auth.auth().currentUser?.uid {
+            FirebaseAPI().changeDisplayName(newDisplayName: displayNameTextField.text!, uid: userId) { (error) in
+                print("User name changed")
+                UserProfile.currentUserProfile?.displayName = self.displayNameTextField.text!
+                
+                
+                //Firstname and Lastname firebase methods 
+                let alertController = UIAlertController(title: "Success", message: "Display name has been changed", preferredStyle: .alert)
+                let okay = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alertController.addAction(okay)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            //navigationController?.popViewController(animated: true)
+        }
+        
+        //performSegue(withIdentifier: "Save", sender: self)
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        self.displayNameTextField.text = userProfile?.displayName
+
+        if let imageUrl = URL(string: (userProfile?.profileImageUrl)!) {
+            let resouce =
+                userProfileImageView.kf.setImage(with: imageUrl)
+        }
+            userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width/2
+            userProfileImageView.clipsToBounds = true
         
-        displayNameTextField.text = userProfile?.displayName
-        FirebaseAPI().change
+
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+       // self.displayNameTextField.text = self.userProfile?.displayName
+    }
+    
+    
     
     @IBAction func editProfilePicturePressed(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -77,6 +116,8 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userProfileImageView.image = image
+            
+            let imageUrl = info[UIImagePickerControllerImageURL] as? String
         } else {
             //Error Message
         }

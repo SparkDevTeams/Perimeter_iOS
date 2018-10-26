@@ -23,6 +23,7 @@ class ChangePasswordViewController: UITableViewController {
     
     @objc func saveChanges() {
         print("Saving user changes ")
+        performSegue(withIdentifier: "save", sender: self)
     }
     
     
