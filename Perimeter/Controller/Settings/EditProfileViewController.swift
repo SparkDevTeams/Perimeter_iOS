@@ -31,7 +31,6 @@ class EditProfileTableViewController: UITableViewController {
         setupNavigationBar()
         
         displayNameTextField.text = userProfile?.displayName
-        FirebaseAPI().change
     
     }
     
