@@ -164,8 +164,8 @@
 			children = (
 				53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */,
 				5372794E216E57D9008D2820 /* Signup.storyboard */,
-				E653D1312174E61D00952671 /* CreateAccount.storyboard */,
 				53727958216E7767008D2820 /* Onboarding.storyboard */,
+				E653D1312174E61D00952671 /* CreateAccount.storyboard */,
 				53D6246A2142B639009CB611 /* Settings.storyboard */,
 				53727947216E4E38008D2820 /* Main.storyboard */,
 			);
