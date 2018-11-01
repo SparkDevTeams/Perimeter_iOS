@@ -76,8 +76,9 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userProfileImageView.image = image
-            let imageUrl = info[UIImagePickerControllerImageURL] as? String
-            FirebaseAPI().uploadImage(path: imageUrl!) { (url,error) in
+            let imageUrl = info[UIImagePickerControllerImageURL] as? URL
+            print("image url is \(imageUrl?.absoluteString)")
+            FirebaseAPI().uploadImage(path: imageUrl!.absoluteString) { (url,error) in
                 if error == nil{
                     UserProfile.currentUserProfile?.profileImageUrl = url
                 }

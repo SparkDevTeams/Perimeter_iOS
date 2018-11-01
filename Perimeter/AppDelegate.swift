@@ -32,7 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //showSignup()
         //showOnboarding()
         //login()
-
+        FirebaseAPI().addUserToChatRoom(userID: "123", chatRoomId: "ECS", completion: { (error) in
+            
+            })
+        FirebaseAPI().deleteUserFromChatRoom(userID: "123", chatRoomId: "ECS", completion: {(error) in
+        })
+       
         return true
     }
     

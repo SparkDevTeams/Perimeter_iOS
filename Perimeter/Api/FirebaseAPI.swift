@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import CodableFirebase
+
 /// Class to interact with firebase API
 class FirebaseAPI{
     
@@ -140,6 +141,7 @@ class FirebaseAPI{
             }
         }
     }
+    
     public func changeLastName(newLastName: String, uid: String, completion: @escaping (Error?) -> Void) {
         // get a reference to the specific user document and fetch the documents
         let dbRef = db.collection("Users").document(uid)
@@ -156,6 +158,7 @@ class FirebaseAPI{
                     
                 });
             }
+        }
         }
     
 
@@ -261,35 +264,41 @@ class FirebaseAPI{
         }
     }
     
-<<<<<<< HEAD
+
     func uploadImage(path: String, completion: @escaping (String,Error?) -> Void) {
     // File located on disk
     let localFile = URL(string: path)!
     let storageRef = storage.reference()
-
+    let imageRef = storageRef.child("testImg.jpg");
+    let imageData = try! Data(contentsOf: localFile)
     // Create a reference to the file you want to upload
    // let riversRef = storageRef
 
-    // Upload the file to the path "images/rivers.jpg"
-    let uploadTask = storageRef.putFile(from: localFile, metadata: nil) { metadata, error in
-        guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            return
-        }
-        // Metadata contains file metadata such as size, content-type.
-        let size = metadata.size
-        // You can also access to download URL after upload.
-        storageRef.downloadURL { (url, error) in
-            if error == nil{
-                completion(url!.absoluteString, nil)
-            }
-            else{
-                completion("", error)
-            }
-            }
-
-        }
-        }
+//    // Upload the file to the path "images/rivers.jpg"
+//    let uploadTask = imageRef.putFile(from: localFile, metadata: nil) { metadata, error in
+//        guard let metadata = metadata else {
+//            // Uh-oh, an error occurred!
+//            return
+//        }
+//        // Metadata contains file metadata such as size, content-type.
+//        let size = metadata.size
+//        // You can also access to download URL after upload.
+//        storageRef.downloadURL { (url, error) in
+//            if error == nil{
+//                completion(url!.absoluteString, nil)
+//            } else{
+//                print("ERRORRR")
+//                print(error?.localizedDescription)
+//                completion("", error)
+//
+//            }
+//        }
+//        print(error?.localizedDescription)
+//
+//        }
+        print("Trying to upload image ")
+        _ = imageRef.putData(imageData)
+    }
 
 
 
@@ -310,7 +319,7 @@ class FirebaseAPI{
         })
     }
 
-=======
+
     func sendTextMessage(_ messageToSend: Message, inChatRoom chatRoom: ChatRoom, completion: @escaping (()->())) {
         let lastMessage = try! FirebaseEncoder().encode(messageToSend)
         print(messageToSend.dictionary)
@@ -331,16 +340,70 @@ class FirebaseAPI{
             }
             
             if let snapshotData = snapshot?.data(), var snapshotMessages = snapshotData["messages"] as? [[String: Any]]{
-                
                 snapshotMessages.append(messageToSend.dictionary)
                 messsagesRef.updateData(["messages": snapshotMessages])
                 completion()
             }
         }
     }
+
     
->>>>>>> dev
-}
     
+    func addUserToChatRoom(userID: String, chatRoomId: String, completion: @escaping (Error?)->Void){
+    
+            let chatRoomRef = db.collection("ChatRooms").document(chatRoomId)
+            chatRoomRef.getDocument { (snapshot, error) in
+            
+                if error != nil {
+                    print("There was a error")
+                    completion(error)
+                    return
+                }
+                
+                if let snapshotData = snapshot?.data(), var snapshotUserIds = snapshotData["usersId"] as? [String]{
+                    
+                    snapshotUserIds.append(userID)
+                    chatRoomRef.updateData(["usersId": snapshotUserIds])
+                    completion(nil)
+                }
+            }
+    }
+    
+    
+    func deleteUserFromChatRoom(userID: String, chatRoomId: String, completion: @escaping (Error?)->Void){
+        
+        let chatRoomRef = db.collection("ChatRooms").document(chatRoomId)
+        chatRoomRef.getDocument { (snapshot, error) in
+            
+            if error != nil {
+                print("There was a error")
+                completion(error)
+                return
+            }
+            
+            if let snapshotData = snapshot?.data(), var snapshotUserIds = snapshotData["usersId"] as? [String]{
+                
+                if let index = snapshotUserIds.firstIndex(of:userID){
+                    snapshotUserIds.remove(at: index)
+                }
+                chatRoomRef.updateData(["usersId": snapshotUserIds])
+                completion(nil)
+            }
+        
+        }
+        
+    }
+    
+    public func updateUserAccount(profile: UserProfile,  completion: @escaping (Error?)-> Void){
+       
+        let user = Auth.auth().currentUser
+        if let user = user {
+         let documentRef = self.db.collection("Users").document(user.uid)
+                var dictionary = profile.dictionary
+                dictionary.updateValue(documentRef.documentID, forKey:"id")
+                documentRef.setData(dictionary)
+                completion(nil)
+        }
+    }
 }
 
