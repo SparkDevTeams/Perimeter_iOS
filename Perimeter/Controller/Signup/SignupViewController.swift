@@ -67,9 +67,13 @@ class SignUpScreenViewController: UIViewController {
             return
         }
         
-        FirebaseAPI().signIn(email: "diago@email.com", password: "password"){(success, userEmail) in
-            print("signed in!")
-            print(success, userEmail as Any)
+        FirebaseAPI().signIn(email: "user1@perimeter.com", password: "password"){(error, userprofile) in
+            if (error == nil){
+                print(userprofile)
+            }
+            else{
+                print(error)
+            }
         }
         
     }
