@@ -33,6 +33,9 @@
 		53D6246C2142B639009CB611 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246A2142B639009CB611 /* Settings.storyboard */; };
 		53D6246E2142B63E009CB611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246D2142B63E009CB611 /* Assets.xcassets */; };
 		53D624712142B63E009CB611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D6246F2142B63E009CB611 /* LaunchScreen.storyboard */; };
+		53FBC6E0218B588800AE6F48 /* MessageThreadDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBC6DF218B588800AE6F48 /* MessageThreadDetailTableViewController.swift */; };
+		53FBC6E3218B591A00AE6F48 /* ProfileDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBC6E1218B591A00AE6F48 /* ProfileDetailTableViewCell.swift */; };
+		53FBC6E4218B591A00AE6F48 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53FBC6E2218B591A00AE6F48 /* ProfileDetailTableViewCell.xib */; };
 		6EA345CAFC7D1793C72B165A /* Pods_Perimeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CD9632E2F22B3EB5061568 /* Pods_Perimeter.framework */; };
 		71875638215ADABE001E1927 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71875636215ADABE001E1927 /* InboxTableViewCell.swift */; };
 		71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71875637215ADABE001E1927 /* InboxTableViewCell.xib */; };
@@ -69,6 +72,9 @@
 		53D6246D2142B63E009CB611 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D624702142B63E009CB611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D624722142B63E009CB611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FBC6DF218B588800AE6F48 /* MessageThreadDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadDetailTableViewController.swift; sourceTree = "<group>"; };
+		53FBC6E1218B591A00AE6F48 /* ProfileDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewCell.swift; sourceTree = "<group>"; };
+		53FBC6E2218B591A00AE6F48 /* ProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
 		71875636215ADABE001E1927 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		71875637215ADABE001E1927 /* InboxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InboxTableViewCell.xib; sourceTree = "<group>"; };
 		79B4419F214457C8003CB123 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				5372794B216E5280008D2820 /* Settings */,
 				536DF9AE2144487600357870 /* InboxTableViewController.swift */,
 				79B4419F214457C8003CB123 /* MessageTableViewController.swift */,
+				53FBC6DF218B588800AE6F48 /* MessageThreadDetailTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +134,8 @@
 				71875637215ADABE001E1927 /* InboxTableViewCell.xib */,
 				532EB71C2182463B00E2725F /* MessageTableViewCell.swift */,
 				532EB71A2182462A00E2725F /* MessageTableViewCell.xib */,
+				53FBC6E1218B591A00AE6F48 /* ProfileDetailTableViewCell.swift */,
+				53FBC6E2218B591A00AE6F48 /* ProfileDetailTableViewCell.xib */,
 				532EB7192182453300E2725F /* MessageInput */,
 			);
 			path = View;
@@ -306,6 +315,7 @@
 				71875639215ADABE001E1927 /* InboxTableViewCell.xib in Resources */,
 				532EB71B2182462A00E2725F /* MessageTableViewCell.xib in Resources */,
 				53727948216E4E38008D2820 /* Main.storyboard in Resources */,
+				53FBC6E4218B591A00AE6F48 /* ProfileDetailTableViewCell.xib in Resources */,
 				536DF9AB214441FD00357870 /* GoogleService-Info.plist in Resources */,
 				53D6246C2142B639009CB611 /* Settings.storyboard in Resources */,
 				53727959216E7767008D2820 /* Onboarding.storyboard in Resources */,
@@ -386,11 +396,13 @@
 				536DF9AF2144487600357870 /* InboxTableViewController.swift in Sources */,
 				534104E721547FB1009B2C65 /* Extentions.swift in Sources */,
 				532EB71F218246B800E2725F /* Helpers.swift in Sources */,
+				53FBC6E0218B588800AE6F48 /* MessageThreadDetailTableViewController.swift in Sources */,
 				79B441A0214457C8003CB123 /* MessageTableViewController.swift in Sources */,
 				532EB71D2182463B00E2725F /* MessageTableViewCell.swift in Sources */,
 				535DEE90215AB8AC0081545D /* ChatRoom.swift in Sources */,
 				535DEE8F215AB8AC0081545D /* Message.swift in Sources */,
 				5372794D216E531D008D2820 /* ChangePasswordViewController.swift in Sources */,
+				53FBC6E3218B591A00AE6F48 /* ProfileDetailTableViewCell.swift in Sources */,
 				53727956216E7741008D2820 /* OnboardingPageViewController.swift in Sources */,
 				532EB7182182451F00E2725F /* MessageInputDelegate.swift in Sources */,
 				53D624672142B638009CB611 /* AppDelegate.swift in Sources */,
@@ -549,7 +561,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Perimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkDev.Perimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -565,7 +580,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Perimeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SparkDev.Perimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

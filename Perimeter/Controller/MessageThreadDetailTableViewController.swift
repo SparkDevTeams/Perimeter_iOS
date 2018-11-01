@@ -53,12 +53,7 @@ class MessageThreadDetailViewController: UITableViewController {
     }
     
     private func getAllUsersInChatRoom() {
-        FirebaseApi.getAllUsersInChatRoom(chatRoom) { (users, error) in
-            if error != nil {
-                self.users = users
-                self.tableView.reloadData()
-            }
-        }
+        
     }
     
     private func registerCell() {
