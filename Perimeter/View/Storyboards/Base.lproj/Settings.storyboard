@@ -89,6 +89,9 @@
                                                     <state key="normal" title="Logout ">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="logOut:" destination="Jqy-8d-q0b" eventType="touchUpInside" id="yvx-Ef-y7g"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -287,7 +290,7 @@
                                                     <rect key="frame" x="20" y="5" width="350" height="33.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -309,7 +312,7 @@
                                                     <rect key="frame" x="20" y="5" width="350" height="33.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -340,7 +343,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tVN-Dj-l90"/>
-        <segue reference="r5G-fo-SuI"/>
+        <segue reference="yhI-jo-bNl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,7 +19,6 @@ class EditProfileTableViewController: UITableViewController {
     @IBOutlet weak var displayNameTextField: UITextField!
     
     @IBOutlet weak var firstName: UITextField!
-    
     @IBOutlet weak var lastName: UITextField!
     
     private func setupNavigationBar() {
@@ -37,14 +36,30 @@ class EditProfileTableViewController: UITableViewController {
                 UserProfile.currentUserProfile?.displayName = self.displayNameTextField.text!
                 
                 
-                //Firstname and Lastname firebase methods 
+                //Firstname and Lastname methods
+                self.userProfile?.firstName = self.firstName.text!
+                self.userProfile?.lastName = self.lastName.text!
+                
+                UserProfile.currentUserProfile = self.userProfile
+                
+                
                 let alertController = UIAlertController(title: "Success", message: "Display name has been changed", preferredStyle: .alert)
                 let okay = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alertController.addAction(okay)
                 self.present(alertController, animated: true, completion: nil)
             }
+            
+            
+            
             //navigationController?.popViewController(animated: true)
         }
+        
+        
+        
+        
+        
+        
+        
         
         //performSegue(withIdentifier: "Save", sender: self)
         
@@ -55,11 +70,12 @@ class EditProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigationBar()
         self.displayNameTextField.text = userProfile?.displayName
-
-        if let imageUrl = URL(string: (userProfile?.profileImageUrl)!) {
-            let resouce =
-                userProfileImageView.kf.setImage(with: imageUrl)
-        }
+        
+//
+//        if let imageUrl = URL(string: (userProfile?.profileImageUrl)!) {
+//            let resouce =
+//                userProfileImageView.kf.setImage(with: imageUrl)
+//        }
             userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width/2
             userProfileImageView.clipsToBounds = true
         
