@@ -54,6 +54,5 @@ struct Message: Codable {
             return [:]
         }
     }
-    
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jqy-8d-q0b">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,6 +57,10 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-lZ-mHO">
                                                     <rect key="frame" x="318" y="7" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="notificationSwitch:" destination="ngh-ai-Zhs" eventType="valueChanged" id="1Iv-k2-Wve"/>
+                                                        <action selector="notificationSwitch:" destination="Jqy-8d-q0b" eventType="valueChanged" id="Fdu-ii-8XJ"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -96,6 +100,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="8Nr-dS-Oq5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXZ-36-piv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ngh-ai-Zhs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
@@ -273,6 +278,10 @@
                             <outlet property="delegate" destination="v20-f9-7to" id="xGz-Ld-5jN"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="changePassword" destination="0qU-qY-AMv" id="ZlJ-5k-knZ"/>
+                        <outlet property="confirmPassword" destination="zBh-yG-0TN" id="aB3-DU-hoE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTr-Dj-UCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
