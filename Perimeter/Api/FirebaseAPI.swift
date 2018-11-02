@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-
+import CodableFirebase
 /// Class to interact with firebase API
 class FirebaseAPI{
     
@@ -56,6 +56,27 @@ class FirebaseAPI{
         }
     }
     
+    
+    public func changeDisplayName(newDisplayName: String, uid: String, completion: @escaping (Error?) -> Void) {
+        // get a reference to the specific user document and fetch the documents
+        let dbRef = db.collection("Users").document(uid)
+        dbRef.getDocument { (snapshot, error) in
+            // there was a error
+            if error != nil {
+                completion(error)
+                return
+
+            } else {
+                dbRef.updateData(["displayName":newDisplayName])
+                self.getUserProfileFromUid(uid, completion: {(error,profile) in
+                    completion(nil)
+
+                });
+            }
+        }
+    }
+    
+    
     /// Gets a userProfile from a specific userId
     ///
     /// - Parameters:
@@ -93,6 +114,42 @@ class FirebaseAPI{
             }
         }
     }
+    
+    //sends message to specified chatroom and updates last message in chat room
+    func sendMessage(message: Message, chatRoom: ChatRoom, completion: @escaping (Error?)->Void){
+        
+        let chatRef = db.collection("ChatRooms").document(chatRoom.id)
+        chatRef.updateData(["lastMessage": message.dictionary])
+        
+        let dbRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+    
+        dbRef.getDocument{ (snapShot,error) in
+            if error == nil{
+                if let data = snapShot?.data(), let messages = data["messages"]{
+                    do{
+                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options:[])
+                        var messages = try JSONDecoder().decode([Message].self, from: jsonData)
+                        messages.append(message)
+                        
+                        let newMessagesData = try JSONEncoder().encode(messages)
+                        let newMessages  = try JSONSerialization.jsonObject(with: newMessagesData, options:[])
+                        dbRef.updateData(["messages" : newMessages])
+                         completion(nil)
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            else{
+                completion(error)
+            }
+        }
+                   
+    }
+    
+    
+  
 
     /// Fetchs all the chatrooms from firebase
     ///
@@ -112,8 +169,7 @@ class FirebaseAPI{
                     
                     for document in documents {
                         let data = document.data()
-                        let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
-                        let chatroom = try JSONDecoder().decode(ChatRoom.self, from: jsonData)
+                        let chatroom = try FirestoreDecoder().decode(ChatRoom.self, from: data)
                         chatRooms.append(chatroom)
                     }
                     
@@ -122,6 +178,7 @@ class FirebaseAPI{
                 } catch {
                     print(error)
                 }
+                
             }
         }
     }
@@ -139,24 +196,53 @@ class FirebaseAPI{
             
             if error != nil {
                 completion([],messsagesRef, error)
-            } else {
-                if let data = snapshot?.data(), let messages = data["messages"] {
-                    
+                return
+            }
+            
+            if let snapshotData = snapshot?.data(), let snapshotMessages = snapshotData["messages"] as? [[String: Any]]{
+                
+                var messages = [Message]()
+                
+                for snapshotMessage in snapshotMessages {
                     do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: messages, options: [])
-                        let messages = try JSONDecoder().decode([Message].self, from: jsonData)
-                        completion(messages, messsagesRef, nil)
+                        let message = try FirestoreDecoder().decode(Message.self, from: snapshotMessage)
+                        messages.append(message)
                     } catch {
-                        print(error.localizedDescription)
+                        print(error)
+                        completion(messages,messsagesRef, error)
                     }
-                    
-                } else{
-                    let tempError = NSError(domain: "Could not decode messsage", code: 1, userInfo: nil)
-                    completion([], messsagesRef,tempError)
-                    return
                 }
+                completion(messages, messsagesRef, nil)
             }
         }
     }
-
+    
+    func sendTextMessage(_ messageToSend: Message, inChatRoom chatRoom: ChatRoom, completion: @escaping (()->())) {
+        let lastMessage = try! FirebaseEncoder().encode(messageToSend)
+        print(messageToSend.dictionary)
+        print(messageToSend)
+        print(lastMessage)
+        // first get a ref to the chatroom
+        let chatRoomRef = db.collection("ChatRooms").document(chatRoom.id)
+        chatRoomRef.updateData(["lastMessage": messageToSend.dictionary])
+        
+        // add the message to the messages
+        let messsagesRef = db.collection("Messages").document(chatRoom.currentMessagesId)
+        messsagesRef.getDocument { (snapshot, error) in
+            
+            if error != nil {
+                print("There was a error")
+                completion()
+                return
+            }
+            
+            if let snapshotData = snapshot?.data(), var snapshotMessages = snapshotData["messages"] as? [[String: Any]]{
+                
+                snapshotMessages.append(messageToSend.dictionary)
+                messsagesRef.updateData(["messages": snapshotMessages])
+                completion()
+            }
+        }
+    }
+    
 }

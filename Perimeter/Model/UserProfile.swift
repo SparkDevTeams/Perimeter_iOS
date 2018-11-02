@@ -14,7 +14,8 @@ struct UserProfile: Codable {
     var email: String
     var profileImageUrl: String?
     var displayName: String
-    
+
+    static var currentUserProfile: UserProfile?
    
     static func testUser() -> UserProfile {
 
