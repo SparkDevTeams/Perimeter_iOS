@@ -13,7 +13,7 @@ import Firebase
 
 class EditProfileTableViewController: UITableViewController {
     
-    var userProfile = UserProfile.currentUserProfile
+    let userProfile = UserProfile.currentUserProfile
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
@@ -120,11 +120,18 @@ extension EditProfileTableViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userProfileImageView.image = image
+            let imageUrl = info[UIImagePickerControllerImageURL] as? URL
+            print("image url is \(imageUrl?.absoluteString)")
+            FirebaseAPI().uploadImage(path: imageUrl!.absoluteString) { (url,error) in
+                if error == nil{
+                    UserProfile.currentUserProfile?.profileImageUrl = url
+                }
+            }
             
             let imageUrl = info[UIImagePickerControllerImageURL] as? String
         } else {
