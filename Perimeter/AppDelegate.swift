@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //showMain()
         showSignup()
         //showOnboarding()
-        //login()
+        login()
 
         return true
     }
@@ -112,6 +112,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print(error?.localizedDescription)
                     } else {
                         UserProfile.currentUserProfile = userProfile
+                        
+                        let chatRoom = ChatRoom(id: "ECS", users: [UserProfile](), beaconIdMajor: "", beaconIdMinor: "", location: "ECS", description: "", messages: [Message](), currentMessagesId: "lHEXmV32Vt5SFSiQ4fnq", messagesIds: [String]())
+                        let messageId = UUID().uuidString
+                        let senderId = Auth.auth().currentUser!.uid
+                        let userDisplayName = "Ashy"
+                        let messageOne = Message(timestamp: Timestamp.init(), message: "message", senderId: senderId, messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: chatRoom.id, messageId: messageId, senderDisplayName: userDisplayName)
+                        
+                        print(Date().timeIntervalSince1970)
+
+                        FirebaseAPI().sendTextMessage(messageOne, inChatRoom: chatRoom) {
+                            
+                        }
                     }
                 })
             }

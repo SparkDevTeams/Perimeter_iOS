@@ -19,7 +19,7 @@ class SignUpScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FirebaseAPI().createAccount(profile: profile, password: "password") { (_, _) in
-    }
+        }
     }
     
     func validate(field: UITextField) -> String?{
@@ -67,9 +67,14 @@ class SignUpScreenViewController: UIViewController {
             return
         }
         
-        FirebaseAPI().signIn(email: "user1@perimeter.com", password: "password"){(error, userprofile) in
+        FirebaseAPI().signIn(email: emailTextField.text!, password: passwordTextField.text!){(error, user) in
             if (error == nil){
-                print(userprofile)
+                
+                FirebaseAPI().getUserProfileFromUid(user!.uid, completion: { (error, userProfile) in
+                    print(userProfile)
+                    let appDel = UIApplication.shared.delegate as! AppDelegate
+                    appDel.showMain()
+                })
             }
             else{
                 print(error)
@@ -79,6 +84,6 @@ class SignUpScreenViewController: UIViewController {
     }
 }
 
-    
+
 
 
