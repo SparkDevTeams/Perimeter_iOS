@@ -15,7 +15,7 @@ class ChatRoom: Codable{
     let id: String
     
     /// The users in this chat room
-    var users: [UserProfile]?
+    var usersId: [String]
     
     /// The beacon major identifer
     let beaconIdMajor: String
@@ -41,9 +41,9 @@ class ChatRoom: Codable{
     /// The last message in this chat room
     var lastMessage: Message?
     
-    init(id: String, users: [UserProfile], beaconIdMajor: String, beaconIdMinor: String, location: String, description: String, messages: [Message], currentMessagesId: String, messagesIds: [String]) {
+    init(id: String, users: [String], beaconIdMajor: String, beaconIdMinor: String, location: String, description: String, messages: [Message], currentMessagesId: String, messagesIds: [String]) {
         self.id = "1"
-        self.users = users
+        self.usersId = users
         self.beaconIdMajor = beaconIdMajor
         self.beaconIdMinor = beaconIdMinor
         self.location = "ECS"

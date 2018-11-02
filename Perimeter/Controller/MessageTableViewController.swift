@@ -29,6 +29,7 @@ class MessageTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         title = chatRoom.location
         listenForNewMessages()
+        setupNavButton()
     }
     
     private func configureMessageBar() {
@@ -48,6 +49,16 @@ class MessageTableViewController: UITableViewController {
     private func registerCell() {
         let nib = UINib(nibName: "MessageTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: messageCellId)
+    }
+    
+    private func setupNavButton() {
+        let infoButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showChatRoomDetail))
+        navigationItem.setRightBarButton(infoButton, animated: true)
+    }
+    
+    @objc private func showChatRoomDetail() {
+        let threadDetail = MessageThreadDetailViewController(chatRoom: chatRoom)
+        navigationController?.pushViewController(threadDetail, animated: true)
     }
     
     private func loadMessages() {

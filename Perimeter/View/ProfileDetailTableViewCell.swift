@@ -19,7 +19,13 @@ class ProfileDetailTableViewCell: UITableViewCell {
         didSet {
             usersNameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
             displayNameLabel.text = user?.displayName
-            if let imageUrl = URL(string: user!.profileImageUrl!) {
+            
+            guard let profileImageUrl = user?.profileImageUrl else {
+                profileImageView.image = #imageLiteral(resourceName: "defaultAvatar")
+                return
+            }
+            
+            if let imageUrl = URL(string: profileImageUrl) {
                 profileImageView.kf.setImage(with: imageUrl)
             }
         }

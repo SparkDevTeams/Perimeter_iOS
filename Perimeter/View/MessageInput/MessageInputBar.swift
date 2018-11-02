@@ -46,7 +46,7 @@ class MessageInputBar: UIView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        backgroundColor = .lightGray
+        backgroundColor = UIColor.white
         
         setupConstraints()
         
