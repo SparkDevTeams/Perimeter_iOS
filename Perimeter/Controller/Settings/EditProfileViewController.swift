@@ -13,7 +13,7 @@ import Firebase
 
 class EditProfileTableViewController: UITableViewController {
     
-    let userProfile = UserProfile.currentUserProfile
+    var userProfile = UserProfile.currentUserProfile
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
