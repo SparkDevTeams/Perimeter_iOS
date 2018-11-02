@@ -12,7 +12,7 @@ import Firebase
 import CodableFirebase
 
 class InboxTableViewController: UITableViewController {
-    //var chatrooms = [String]()
+    
     var chatrooms = [ChatRoom]()
     
     private let cellIdentifer = "InboxCell"
@@ -40,7 +40,7 @@ class InboxTableViewController: UITableViewController {
         do{
             
             var chatrooms = [ChatRoom]()
-            
+        
             let documents = snapshot!.documents
 
             for document in documents {
@@ -90,22 +90,18 @@ class InboxTableViewController: UITableViewController {
     }
 }
 
-// MARK: - UITableViewDelegate
 extension InboxTableViewController {
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    //var chatroom : [ChatRoom]()
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        //let indexPath = tableView.indexPathForSelectedRow
        let chatRoom = chatrooms[indexPath.row]
        
        let destinationViewController = MessageTableViewController(chatRoom: chatRoom)
         
        navigationController?.pushViewController(destinationViewController, animated: true)
-          }
+    }
 }
+
 
 extension InboxTableViewController {
     
@@ -134,7 +130,5 @@ extension InboxTableViewController {
         return 1
         
     }
-    
-   
     
 }
