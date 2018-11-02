@@ -133,7 +133,6 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
                 }
             }
             
-            let imageUrl = info[UIImagePickerControllerImageURL] as? String
         } else {
             //Error Message
         }
