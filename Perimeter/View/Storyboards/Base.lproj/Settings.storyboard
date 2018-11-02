@@ -277,10 +277,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
+                            <tableViewSection headerTitle="Change password" id="61f-WK-pGT">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="MF0-20-JZv">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MF0-20-JZv" id="kcb-M6-fF0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEH-WJ-cGA">
+                                                    <rect key="frame" x="20" y="5" width="350" height="33.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tEH-WJ-cGA" firstAttribute="leading" secondItem="kcb-M6-fF0" secondAttribute="leading" constant="20" id="ABg-kL-Kh6"/>
+                                                <constraint firstAttribute="trailing" secondItem="tEH-WJ-cGA" secondAttribute="trailing" constant="5" id="CEg-87-Xkw"/>
+                                                <constraint firstItem="tEH-WJ-cGA" firstAttribute="top" secondItem="kcb-M6-fF0" secondAttribute="top" constant="5" id="Jb7-Rk-bTR"/>
+                                                <constraint firstAttribute="bottom" secondItem="tEH-WJ-cGA" secondAttribute="bottom" constant="5" id="OeD-Cm-ueA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Change password" id="8vC-8K-N5Q">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="jvr-Cb-vuX">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jvr-Cb-vuX" id="6xx-F2-l0W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -302,7 +328,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="2Nl-CW-nQI">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Nl-CW-nQI" id="FD2-bu-pUf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -333,6 +359,7 @@
                     </tableView>
                     <connections>
                         <outlet property="changePassword" destination="0qU-qY-AMv" id="ZlJ-5k-knZ"/>
+                        <outlet property="confirPassword" destination="tEH-WJ-cGA" id="xG6-fp-x3f"/>
                         <outlet property="confirmPassword" destination="zBh-yG-0TN" id="aB3-DU-hoE"/>
                         <segue destination="8iP-yd-96l" kind="show" identifier="save" id="r5G-fo-SuI"/>
                     </connections>
@@ -343,6 +370,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yhI-jo-bNl"/>
+        <segue reference="r5G-fo-SuI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class InboxTableViewCell: UITableViewCell {
     
@@ -28,14 +29,22 @@ class InboxTableViewCell: UITableViewCell {
         return date
     }()
     
-    
     var chatRoom: ChatRoom? {
         didSet{
             
             chatRoomName.text = chatRoom?.location
             
+            
+            if let imageURL = URL(string: (chatRoom?.chatRoomImageUrl)!){
+                chatRoomImage.kf.setImage(with: imageURL)
+                chatRoomImage.layer.cornerRadius=self.chatRoomImage.frame.size.width / 2;
+                chatRoomImage.clipsToBounds = true;
+                chatRoomImage.layer.borderWidth = 1.0;
+                chatRoomImage.layer.borderColor = UIColor.white.cgColor
+            }
+          
             if let lastMessage = chatRoom?.lastMessage {
-                
+    
                 chatFinalMessage.text = lastMessage.message
                 chatMessageTime.text = dateFormatter.string(from: lastMessage.timestamp.dateValue())}
             else {
@@ -44,7 +53,7 @@ class InboxTableViewCell: UITableViewCell {
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
