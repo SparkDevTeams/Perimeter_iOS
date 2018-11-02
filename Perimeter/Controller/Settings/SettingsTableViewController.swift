@@ -18,6 +18,14 @@ class SettingsTableViewController: UITableViewController {
     //{
     
     
+    @IBAction func logOut(_ sender: Any) {
+        //code to logout of app back to login page
+        
+        
+        
+        
+    }
+    
     @IBAction func notificationSwitch(_ sender: UISwitch) {
         
         if(sender.isOn == true)
@@ -38,6 +46,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "Settings"
     }
+    
     
     
 }

@@ -13,6 +13,7 @@ class ChangePasswordViewController: UITableViewController {
     
     @IBOutlet weak var changePassword: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    var userProfile = UserProfile.currentUserProfile
     
     private func setupNavigationBar() {
         let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveChanges))
@@ -23,6 +24,27 @@ class ChangePasswordViewController: UITableViewController {
     
     @objc func saveChanges() {
         print("Saving user changes ")
+        
+        
+        if (changePassword.text != confirmPassword.text){
+             print("Password needs to be the same")
+            let alertController = UIAlertController(title: "Error!", message: "Passwords are not the same", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okay)
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+        if (changePassword.text == confirmPassword.text){
+            let alertController = UIAlertController(title: "Success", message: "Your new password was saved successfully", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okay)
+            self.present(alertController, animated: true, completion: nil)
+            performSegue(withIdentifier: "save", sender: self)
+            
+            
+        }
+        
     }
     
     

@@ -145,7 +145,6 @@ class FirebaseAPI{
                 completion(error)
             }
         }
-                   
     }
     
     
@@ -216,7 +215,7 @@ class FirebaseAPI{
             }
         }
     }
-    
+
     func sendTextMessage(_ messageToSend: Message, inChatRoom chatRoom: ChatRoom, completion: @escaping (()->())) {
         let lastMessage = try! FirebaseEncoder().encode(messageToSend)
         print(messageToSend.dictionary)
@@ -244,5 +243,4 @@ class FirebaseAPI{
             }
         }
     }
-    
 }
