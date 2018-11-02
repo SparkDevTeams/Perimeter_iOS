@@ -13,7 +13,10 @@ import Firebase
 
 class EditProfileTableViewController: UITableViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var userProfile = UserProfile.currentUserProfile
+    
+    let firebase = FirebaseAPI()
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
@@ -49,8 +52,6 @@ class EditProfileTableViewController: UITableViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             
-            
-            
             //navigationController?.popViewController(animated: true)
         }
         
@@ -69,7 +70,14 @@ class EditProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+
+        
         self.displayNameTextField.text = userProfile?.displayName
+        self.userProfile?.firstName = (userProfile?.firstName)!
+        self.userProfile?.lastName = (userProfile?.lastName)!
+        
+        UserProfile.currentUserProfile = self.userProfile
+        userProfileImageView.image = appDelegate.currentUserImage
         
 //
 //        if let imageUrl = URL(string: (userProfile?.profileImageUrl)!) {
@@ -82,6 +90,7 @@ class EditProfileTableViewController: UITableViewController {
         displayNameTextField.text = userProfile?.displayName
     
     }
+
     
     @IBAction func editProfilePicturePressed(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -125,6 +134,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             userProfileImageView.image = image
+            appDelegate.currentUserImage = image
             
             let imageUrl = info[UIImagePickerControllerImageURL] as? String
         } else {
