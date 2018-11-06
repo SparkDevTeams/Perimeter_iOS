@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Firebase
 class SettingsTableViewController: UITableViewController {
     // This is where you allow or deny notifictaions
     // made by nathercia goncalves
@@ -21,8 +21,10 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func logOut(_ sender: Any) {
         //code to logout of app back to login page
         
+        try? Auth.auth().signOut()
         
-        
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        appDel.showSignup()
         
     }
     

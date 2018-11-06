@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yO1-up-Mnc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yO1-up-Mnc">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome" placeholder="TItle Text" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="KDA-QE-0mv">
-                                <rect key="frame" x="114" y="530" width="148" height="45"/>
+                                <rect key="frame" x="114" y="530" width="147" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="UbW-3S-qxP"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perimeterSignupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4Rq-hq-ZEC">
-                                <rect key="frame" x="67" y="170" width="240" height="128"/>
+                                <rect key="frame" x="67" y="170" width="241" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="TZM-kb-lzA"/>
                                 </constraints>
@@ -72,46 +72,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-pf-hy6">
-                                <rect key="frame" x="69" y="547.66666666666663" width="237" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnBoarding-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="J3n-hN-8eB">
+                                <rect key="frame" x="67.666666666666686" y="154" width="240" height="179"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="237" id="6yf-4m-vdl"/>
-                                    <constraint firstAttribute="height" constant="48" id="Qmv-jp-UJa"/>
+                                    <constraint firstAttribute="width" constant="240" id="7iK-cs-9wb"/>
+                                    <constraint firstAttribute="height" constant="179" id="RYt-i1-ytm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgQ-Tr-jIb">
-                                <rect key="frame" x="134.66666666666666" y="268.66666666666669" width="106" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="4dE-Qk-eNz"/>
-                                    <constraint firstAttribute="width" constant="106" id="xg2-rB-zA3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perimeter is a location based messaging application that allows users to communicate in realtime." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-Pg-gTq">
+                                <rect key="frame" x="23" y="588" width="329" height="110"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20391881470000001" green="0.20432731509999999" blue="0.21569305659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mfC-pf-hy6" firstAttribute="centerY" secondItem="z3W-gc-xeO" secondAttribute="centerY" constant="165.5" id="7p8-jz-JZW"/>
-                            <constraint firstItem="mfC-pf-hy6" firstAttribute="centerX" secondItem="z3W-gc-xeO" secondAttribute="centerX" id="RBd-Ix-pHz"/>
-                            <constraint firstItem="dgQ-Tr-jIb" firstAttribute="centerY" secondItem="z3W-gc-xeO" secondAttribute="centerY" constant="-113.5" id="RVt-ma-vIf"/>
-                            <constraint firstItem="dgQ-Tr-jIb" firstAttribute="centerX" secondItem="z3W-gc-xeO" secondAttribute="centerX" id="Sxp-lz-OVL"/>
-                            <constraint firstItem="dgQ-Tr-jIb" firstAttribute="centerX" secondItem="z3W-gc-xeO" secondAttribute="centerX" id="jF8-y8-7ZG"/>
-                            <constraint firstItem="mfC-pf-hy6" firstAttribute="centerX" secondItem="z3W-gc-xeO" secondAttribute="centerX" id="vfy-1f-G7U"/>
+                            <constraint firstItem="UTh-Pg-gTq" firstAttribute="leading" secondItem="z3W-gc-xeO" secondAttribute="leadingMargin" constant="7" id="6RW-tF-X8X"/>
+                            <constraint firstItem="J3n-hN-8eB" firstAttribute="centerX" secondItem="z3W-gc-xeO" secondAttribute="centerX" id="J44-mK-J6d"/>
+                            <constraint firstItem="J3n-hN-8eB" firstAttribute="top" secondItem="UB3-Ej-PmC" secondAttribute="bottom" constant="110" id="JV9-XX-sXR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UTh-Pg-gTq" secondAttribute="trailing" constant="7" id="RgA-0A-KVp"/>
+                            <constraint firstItem="c9B-VO-WTa" firstAttribute="top" secondItem="UTh-Pg-gTq" secondAttribute="bottom" constant="80" id="xeV-AC-Ef8"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16b-Ro-aCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="627"/>
+            <point key="canvasLocation" x="93.599999999999994" y="626.60098522167493"/>
         </scene>
         <!--Last Onboarding Screen View Controller-->
         <scene sceneID="pYY-5o-Je9">
             <objects>
-                <viewController storyboardIdentifier="ThreeVC" id="33n-1h-DCa" customClass="LastOnboardingScreenViewController" customModule="Perimeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoneVC" id="33n-1h-DCa" customClass="LastOnboardingScreenViewController" customModule="Perimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DEk-38-ye3"/>
                         <viewControllerLayoutGuide type="bottom" id="rC5-1r-AOb"/>
@@ -121,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWZ-B9-ZzJ">
-                                <rect key="frame" x="87" y="575" width="202" height="50"/>
+                                <rect key="frame" x="87" y="575" width="201" height="50"/>
                                 <color key="backgroundColor" red="0.43081134557723999" green="0.32155090570449829" blue="0.7026330828666687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fcy-AS-vlV"/>
@@ -141,7 +133,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perimeterSignupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pPH-oU-mXp">
-                                <rect key="frame" x="67" y="170" width="240" height="128"/>
+                                <rect key="frame" x="67" y="170" width="241" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="gZO-uJ-oUO"/>
                                 </constraints>
@@ -169,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dah-dl-UFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="626.53673163418296"/>
+            <point key="canvasLocation" x="2262" y="627"/>
         </scene>
         <!--Onboarding Page View Controller-->
         <scene sceneID="myB-JO-U7C">
@@ -179,8 +171,52 @@
             </objects>
             <point key="canvasLocation" x="-238" y="-87"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="tHx-GF-KRm">
+            <objects>
+                <viewController storyboardIdentifier="ThreeVC" id="6yi-8P-Z6X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NsN-1B-VTW"/>
+                        <viewControllerLayoutGuide type="bottom" id="bLx-Xb-UuS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SLC-0F-lXt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnBoarding-02.png" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-Pe-I72">
+                                <rect key="frame" x="67.666666666666686" y="154" width="240" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="Biy-kC-Mtm"/>
+                                    <constraint firstAttribute="width" constant="240" id="mF7-gj-Wxh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eo8-vy-Psi">
+                                <rect key="frame" x="23" y="533" width="329" height="165"/>
+                                <string key="text">Perimeter uses beacons to detect when a user is near in order to connect them to the correct chat room. (This feature is still in progress)
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20391881470000001" green="0.20432731509999999" blue="0.21569305659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Eo8-vy-Psi" firstAttribute="leading" secondItem="SLC-0F-lXt" secondAttribute="leadingMargin" constant="7" id="Ceo-5V-0tl"/>
+                            <constraint firstItem="bLx-Xb-UuS" firstAttribute="top" secondItem="Eo8-vy-Psi" secondAttribute="bottom" constant="80" id="Lu5-af-fAT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eo8-vy-Psi" secondAttribute="trailing" constant="7" id="N4A-1X-DFO"/>
+                            <constraint firstItem="P6d-Pe-I72" firstAttribute="centerX" secondItem="SLC-0F-lXt" secondAttribute="centerX" id="Yw0-ev-Ptz"/>
+                            <constraint firstItem="P6d-Pe-I72" firstAttribute="top" secondItem="NsN-1B-VTW" secondAttribute="bottom" constant="110" id="gZh-Fy-BI5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dar-xv-rZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="625"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="perimeterSignupLogo" width="185" height="95"/>
+        <image name="OnBoarding-01.png" width="4267" height="4267"/>
+        <image name="OnBoarding-02.png" width="4267" height="4267"/>
+        <image name="perimeterSignupLogo" width="370" height="191"/>
     </resources>
 </document>

@@ -30,6 +30,7 @@ class MessageTableViewController: UITableViewController {
         title = chatRoom.location
         listenForNewMessages()
         setupNavButton()
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
     }
     
     private func configureMessageBar() {
@@ -131,7 +132,7 @@ extension MessageTableViewController: MessageInputDelegate {
     func userDidPressSendButton(message: String?) {
         let messageId = UUID().uuidString
         let senderId = Auth.auth().currentUser!.uid
-        let userDisplayName = "Ashy"
+        let userDisplayName = UserProfile.currentUserProfile!.displayName
         let messageOne = Message(timestamp: Timestamp.init(), message: message, senderId: senderId, messageType: "text", audioLink: nil, imageLink: nil, videoLink: nil, chatRoomId: chatRoom.id, messageId: messageId, senderDisplayName: userDisplayName)
         
         print(Date().timeIntervalSince1970)
@@ -142,8 +143,16 @@ extension MessageTableViewController: MessageInputDelegate {
     }
     
     func userDidPressCameraButton() -> UIImage? {
+        let alert = UIAlertController(title: "Uh oh", message: "This feature is currently in progess", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         
+        present(alert, animated: true, completion: nil)
         return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        messageBar.resign()
     }
 }
 

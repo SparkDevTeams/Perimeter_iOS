@@ -13,7 +13,7 @@ import Firebase
 
 class EditProfileTableViewController: UITableViewController {
     
-    let userProfile = UserProfile.currentUserProfile
+    var userProfile = UserProfile.currentUserProfile
     
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
@@ -33,8 +33,7 @@ class EditProfileTableViewController: UITableViewController {
         if let userId = Auth.auth().currentUser?.uid {
             FirebaseAPI().changeDisplayName(newDisplayName: displayNameTextField.text!, uid: userId) { (error) in
                 print("User name changed")
-                UserProfile.currentUserProfile?.displayName = self.displayNameTextField.text!
-                
+                self.userProfile?.displayName = self.displayNameTextField.text!
                 
                 //Firstname and Lastname methods
 //                self.userProfile?.firstName = self.firstName.text!

@@ -10,8 +10,21 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGues = UITapGestureRecognizer()
+        tapGues.numberOfTapsRequired = 1
+        tapGues.numberOfTouchesRequired = 1
+        tapGues.addTarget(self, action: #selector(dissmissKeyboard))
+        
+        view.addGestureRecognizer(tapGues)
     }
     
+    @objc private func dissmissKeyboard() {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        confirmPasswordTextField.resignFirstResponder()
+        userNameTextField.resignFirstResponder()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -77,6 +90,23 @@ class CreateAccountViewController: UIViewController {
                 // let user know they successfully created account
                 print("Created succesffuly")
                 self.displayCongrats(userMessage: "Successfully created account :)")
+                
+                FirebaseAPI().signIn(email: self.emailTextField.text!, password: self.passwordTextField.text!) { (error, user) in
+                    if (error != nil){
+                        
+                        print(error?.localizedDescription)
+                    }else{
+                        guard let userId = user?.uid else {return}
+                        
+                        FirebaseAPI().getUserProfileFromUid(userId, completion: { (error, userProfile) in
+                            if (error != nil) {
+                                print(error?.localizedDescription)
+                            } else {
+                                UserProfile.currentUserProfile = userProfile
+                            }
+                        })
+                    }
+                }
                 return
             }
             else {
@@ -129,7 +159,7 @@ class CreateAccountViewController: UIViewController {
                 // code in this block will trigger when OK button tapped
                 print("OK button Tapped")
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion:nil)
+                    //self.dismiss(animated: true, completion:nil)
                 }
             }
             alertController.addAction(OKAction)
@@ -147,7 +177,7 @@ class CreateAccountViewController: UIViewController {
                 // code in this block will trigger when OK button tapped
                 print("OK button Tapped")
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion:nil)
+                    //self.dismiss(animated: true, completion:nil)
                     
                     // go to main site
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -16,7 +16,8 @@ class OnboardingPageViewController: UIPageViewController, UIPageViewControllerDa
         let vc1 = sb.instantiateViewController(withIdentifier: "OneVC")
         let vc2 = sb.instantiateViewController(withIdentifier: "TwoVC")
         let vc3 = sb.instantiateViewController(withIdentifier: "ThreeVC")
-        return [vc1, vc2, vc3]
+        let doneVC = sb.instantiateViewController(withIdentifier: "DoneVC")
+        return [vc1, vc2, vc3, doneVC]
     }()
     
     override func viewDidLoad() {
