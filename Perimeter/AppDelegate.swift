@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,15 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         /* configure tabbar bar view, if you want to change the entry point of the app
          comment out configureTabBarView and instantiate your own view and set it as the rootView*/
-         showMain()
+        showMain()
         //showSignup()
         //showOnboarding()
-        //login()
-        FirebaseAPI().addUserToChatRoom(userID: "123", chatRoomId: "ECS", completion: { (error) in
-            
-            })
-        FirebaseAPI().deleteUserFromChatRoom(userID: "123", chatRoomId: "ECS", completion: {(error) in
-        })
+        login()
+
        
         return true
     }
@@ -79,9 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let inboxVc = InboxTableViewController()
         
         let settingsNc = UINavigationController(rootViewController: settingsVc)
-        settingsNc.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 0)
+        settingsNc.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "Settings"), tag: 0)
         
         let inboxNc = UINavigationController(rootViewController: inboxVc)
+        inboxNc.tabBarItem = UITabBarItem(title: "Chats", image: #imageLiteral(resourceName: "chat-1"), tag: 1)
         
         let tabBarController = UITabBarController()
         tabBarController.setViewControllers([inboxNc, settingsNc], animated: true)

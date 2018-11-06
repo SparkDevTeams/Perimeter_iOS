@@ -29,11 +29,25 @@ class MessageTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         title = chatRoom.location
         listenForNewMessages()
+        setupNavButton()
     }
     
     private func configureMessageBar() {
         view.addSubview(messageBar)
         messageBar.delegate = self
+    }
+    
+    private func setupNavButton() {
+        let infoB = UIButton(type: .infoLight)
+        infoB.addTarget(self, action: #selector(showChatRoomDetail), for: .touchUpInside)
+        let infoButton = UIBarButtonItem(customView: infoB)
+        navigationItem.setRightBarButton(infoButton, animated: true)
+        
+    }
+    
+    @objc private func showChatRoomDetail() {
+        let threadDetail = MessageThreadDetailViewController(chatRoom: chatRoom)
+        navigationController?.pushViewController(threadDetail, animated: true)
     }
     
     init(chatRoom: ChatRoom) {

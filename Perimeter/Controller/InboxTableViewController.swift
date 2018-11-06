@@ -31,6 +31,7 @@ class InboxTableViewController: UITableViewController {
         
         title = "Chat Rooms"
         
+        
         let dataBase = Firestore.firestore()
         
         chatRoomDocumentRef = dataBase.collection("ChatRooms")
@@ -65,6 +66,11 @@ class InboxTableViewController: UITableViewController {
     })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     private func registerCell() {
         
         let nib = UINib(nibName: "InboxTableViewCell", bundle: nil)
@@ -77,15 +83,16 @@ class InboxTableViewController: UITableViewController {
         firebase.fetchAllChatRooms{(chatrooms, error) in
             
             self.chatrooms = chatrooms
+            self.tableView.reloadData()
             
-            for chatRoom in chatrooms{
-                
-                self.firebase.fetchMessagesForChatRoom(chatRoom, completion:
-                    
-                    {(messages,messagesRef,error) in
-                        
-                    self.tableView.reloadData() })
-            }
+//            for chatRoom in chatrooms{
+//
+//                self.firebase.fetchMessagesForChatRoom(chatRoom, completion:
+//
+//                    {(messages,messagesRef,error) in
+//
+//                    self.tableView.reloadData() })
+//            }
         }
     }
 }

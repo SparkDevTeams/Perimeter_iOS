@@ -37,8 +37,8 @@ class EditProfileTableViewController: UITableViewController {
                 
                 
                 //Firstname and Lastname methods
-                self.userProfile?.firstName = self.firstName.text!
-                self.userProfile?.lastName = self.lastName.text!
+//                self.userProfile?.firstName = self.firstName.text!
+//                self.userProfile?.lastName = self.lastName.text!
                 
                 UserProfile.currentUserProfile = self.userProfile
                 

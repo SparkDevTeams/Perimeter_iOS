@@ -58,7 +58,7 @@ class MessageThreadDetailViewController: UITableViewController {
     
     private func getAllUsersInChatRoom() {
       
-        for userId in chatRoom.usersId {
+        for (userId, _) in chatRoom.userProfileIds! {
             // fetch the user for
             FirebaseAPI().getUserProfileFromUid(userId) { (error, userProfile) in
                 if error != nil {
